@@ -16,30 +16,28 @@
   --bg-2:#100e0a;
   --surface:#16130d;
   --surface-2:#201b12;
-  --plum:#2a2214;
   --ink:#f7f0e6;
-  --ink-soft:rgba(247,240,230,.64);
-  --ink-faint:rgba(247,240,230,.40);
+  --ink-soft:rgba(247,240,230,.66);
+  --ink-faint:rgba(247,240,230,.42);
   --gold:#e6bd5f;
   --gold-deep:#b8822e;
   --rose:#e6ce93;
-  --line:rgba(247,236,232,.09);
-  --line-2:rgba(247,236,232,.15);
-  --gold-line:rgba(230,189,95,.30);
+  --line:rgba(247,240,230,.10);
+  --line-2:rgba(247,240,230,.16);
+  --gold-line:rgba(230,189,95,.32);
   --radius:16px;
   --radius-lg:20px;
   --pill:999px;
   --ease:cubic-bezier(0.2,0.8,0.2,1);
-  --shadow:0 10px 30px rgba(0,0,0,.4);
-  --shadow-lg:0 26px 70px rgba(0,0,0,.6);
-  --gold-glow:0 10px 34px rgba(224,179,84,.24);
+  --shadow:0 12px 34px rgba(0,0,0,.5);
+  --shadow-lg:0 28px 74px rgba(0,0,0,.66);
+  --glass:rgba(10,8,6,.60);
+  --glass-2:rgba(14,11,8,.72);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(120% 60% at 50% -10%,rgba(184,130,46,.16),transparent 62%),
-    var(--bg);
+  background:var(--bg);
   color:var(--ink);
   font-family:"DM Sans",system-ui,sans-serif;
   font-weight:300;line-height:1.64;
@@ -49,626 +47,468 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 
-.wrap{max-width:560px;margin:0 auto;padding:0 22px}
+/* ============ FIXED BACKGROUND STAGE ============ */
+.stage{position:fixed;inset:0;z-index:0;overflow:hidden}
+.stage__img{
+  position:absolute;inset:0;
+  background-color:#080706;
+  background-image:url('assets/hero.jpg');
+  background-image:-webkit-image-set(url('assets/hero.webp') type('image/webp'),url('assets/hero.jpg') type('image/jpeg'));
+  background-image:image-set(url('assets/hero.webp') type('image/webp'),url('assets/hero.jpg') type('image/jpeg'));
+  background-size:cover;
+  background-position:center 18%;
+  background-repeat:no-repeat;
+}
+@media(min-width:900px){.stage__img{background-position:center 22%}}
+.stage__scrim{position:absolute;inset:0;
+  background:
+    radial-gradient(115% 85% at 50% 16%,transparent 0%,rgba(8,7,6,.30) 52%,rgba(8,7,6,.80) 100%),
+    linear-gradient(180deg,rgba(8,7,6,.30) 0%,rgba(8,7,6,.58) 44%,rgba(8,7,6,.90) 100%)}
+.stage__grain{position:absolute;inset:0;opacity:.045;mix-blend-mode:overlay;
+  background-image:radial-gradient(rgba(255,255,255,.5) .5px,transparent .5px);background-size:3px 3px}
+
+/* ============ SCROLLING CONTENT ============ */
+.content{position:relative;z-index:1}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
 @media(min-width:900px){.wrap{max-width:940px;padding:0 40px}}
 
-/* ---------- Scroll progress ---------- */
 .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:transparent}
 .progress__fill{height:100%;transform-origin:0 50%;transform:scaleX(0);
-  background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--rose));
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold));
   animation:grow linear;animation-timeline:scroll(root block)}
 @keyframes grow{to{transform:scaleX(1)}}
 
-/* ---------- Reveal (blur in/out) ---------- */
-.reveal{animation:blurIn linear both;animation-timeline:view();animation-range:entry 2% cover 32%}
-@keyframes blurIn{
-  from{opacity:0;filter:blur(14px);transform:translateY(24px) scale(.99)}
-  to{opacity:1;filter:blur(0);transform:none}
-}
-.d1{animation-delay:.06s}.d2{animation-delay:.13s}.d3{animation-delay:.2s}
+.reveal{animation:blurIn linear both;animation-timeline:view();animation-range:entry 2% cover 34%}
+@keyframes blurIn{from{opacity:0;filter:blur(14px);transform:translateY(26px) scale(.99)}to{opacity:1;filter:blur(0);transform:none}}
 @media(prefers-reduced-motion:reduce){
   .reveal{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
   .progress__fill{animation:none;transform:scaleX(0)}
   html{scroll-behavior:auto}
 }
 
-/* ---------- Sections ---------- */
-section{position:relative}
-.block{padding:60px 0}
-.block--tight{padding:40px 0}
-.kicker{
-  font-family:"JetBrains Mono",monospace;font-size:.68rem;font-weight:500;
+/* ============ 1 · BANNER ============ */
+.banner{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  align-items:center;text-align:center;padding-bottom:70px}
+.banner__ey{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:20px;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.banner h1{font-family:"Cormorant Garamond",serif;font-weight:600;
+  font-size:clamp(3.4rem,17vw,7rem);line-height:.96;letter-spacing:-.02em;text-shadow:0 6px 34px rgba(0,0,0,.7)}
+.banner h1 .amp{font-style:italic;color:var(--gold);font-weight:500}
+.banner__sub{margin-top:14px;font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:clamp(1.4rem,5vw,2rem);color:var(--ink);letter-spacing:.01em;text-shadow:0 3px 18px rgba(0,0,0,.8)}
+.scrollcue{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:7px;
+  color:var(--ink-soft);font-family:"JetBrains Mono",monospace;font-size:.6rem;
+  letter-spacing:.22em;text-transform:uppercase;animation:bob 2.4s var(--ease) infinite;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.scrollcue svg{width:16px;height:16px}
+
+/* ============ GLASS PANELS ============ */
+.block{padding:32px 0}
+.panel{background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1);
+  border:1px solid var(--line-2);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:32px 24px}
+@media(min-width:900px){.panel{padding:40px 40px}}
+.panel--gold{border-color:var(--gold-line)}
+
+.kicker{font-family:"JetBrains Mono",monospace;font-size:.68rem;font-weight:500;
   letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;
-  display:flex;align-items:center;gap:12px;
-}
+  display:flex;align-items:center;gap:12px}
 .kicker::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-h2.title{
-  font-family:"Cormorant Garamond",serif;font-weight:600;
-  font-size:clamp(2rem,6.5vw,3rem);line-height:1.06;letter-spacing:-.015em;
-}
+h2.title{font-family:"Cormorant Garamond",serif;font-weight:600;
+  font-size:clamp(2rem,6.5vw,3rem);line-height:1.06;letter-spacing:-.015em}
 .copy{margin-top:16px;color:var(--ink-soft);font-size:1.05rem;max-width:52ch}
 .copy p+p{margin-top:14px}
 
-.rule{height:1px;background:var(--line);transform-origin:0 50%;transform:scaleX(0);
-  animation:ruleIn linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
-@keyframes ruleIn{to{transform:scaleX(1)}}
-@media(prefers-reduced-motion:reduce){.rule{transform:scaleX(1);animation:none}}
-
-/* ---------- 1 · BANNER ---------- */
-.banner{
-  min-height:88svh;display:grid;place-items:center;text-align:center;
-  position:relative;overflow:hidden;
-}
-.banner__glow{position:absolute;inset:auto -20% -40% -20%;height:75%;
-  background:radial-gradient(50% 100% at 50% 100%,rgba(224,179,84,.14),transparent 70%);pointer-events:none}
-.banner__ey{
-  font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.34em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:28px;
-}
-.banner h1{
-  font-family:"Cormorant Garamond",serif;font-weight:600;
-  font-size:clamp(3.2rem,15vw,6.5rem);line-height:.98;letter-spacing:-.02em;
-}
-.banner h1 .amp{font-style:italic;color:var(--gold);font-weight:500}
-.banner__sub{
-  margin-top:20px;font-family:"Cormorant Garamond",serif;font-style:italic;
-  font-size:clamp(1.4rem,5vw,2rem);color:var(--ink-soft);letter-spacing:.01em;
-}
-.scrollcue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--ink-faint);
-  font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
-  animation:bob 2.4s var(--ease) infinite}
-@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
-.scrollcue svg{width:16px;height:16px}
-
-/* ---------- Card ---------- */
-.card{
-  background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);
-  border:1px solid var(--line-2);border-radius:var(--radius-lg);
-  padding:30px 26px;box-shadow:var(--shadow);
-}
-.card--gold{border-color:var(--gold-line);
-  background:linear-gradient(180deg,rgba(224,179,84,.06),rgba(224,179,84,.01))}
-
-/* ---------- /menu callout ---------- */
-.menu-callout{
-  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
-  margin-top:26px;padding:22px 26px;border-radius:var(--radius);
-  background:linear-gradient(90deg,rgba(224,179,84,.12),rgba(224,179,84,.03));
-  border:1px solid var(--gold-line);
-}
-.menu-cmd{
-  font-family:"JetBrains Mono",monospace;font-weight:500;
-  font-size:clamp(1.5rem,6vw,2.1rem);color:var(--gold);letter-spacing:.02em;
-  padding:8px 20px;border-radius:12px;background:rgba(0,0,0,.28);
-  border:1px solid var(--gold-line);white-space:nowrap;
-}
+.menu-callout{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:24px;
+  padding:20px 24px;border-radius:var(--radius);
+  background:linear-gradient(90deg,rgba(230,189,95,.14),rgba(230,189,95,.03));border:1px solid var(--gold-line)}
+.menu-cmd{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:clamp(1.5rem,6vw,2.1rem);
+  color:var(--gold);letter-spacing:.02em;padding:8px 20px;border-radius:12px;background:rgba(0,0,0,.4);
+  border:1px solid var(--gold-line);white-space:nowrap}
 .menu-callout p{color:var(--ink-soft);font-size:1rem;flex:1;min-width:200px}
 
-/* ---------- 4 · KING (feature) ---------- */
-.king{
-  position:relative;text-align:center;padding:44px 28px;border-radius:var(--radius-lg);
-  background:
-    radial-gradient(80% 120% at 50% 0%,rgba(224,179,84,.16),transparent 60%),
-    linear-gradient(180deg,var(--surface-2),var(--surface));
-  border:1px solid var(--gold-line);box-shadow:var(--shadow-lg);overflow:hidden;
-}
-.king::after{content:"";position:absolute;inset:0;border-radius:inherit;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);pointer-events:none}
-.crown{width:56px;height:56px;margin:0 auto 18px;display:block;color:var(--gold);
-  filter:drop-shadow(0 6px 18px rgba(224,179,84,.4))}
-.king h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-style:italic;
-  font-size:clamp(2rem,7vw,3rem);letter-spacing:-.01em}
-.king .copy{margin:16px auto 0;text-align:center;color:var(--ink-soft)}
+.king{text-align:center}
+.crown{width:54px;height:54px;margin:0 auto 16px;display:block;color:var(--gold);filter:drop-shadow(0 6px 18px rgba(230,189,95,.4))}
+.king h2{font-family:"Cormorant Garamond",serif;font-weight:600;font-style:italic;font-size:clamp(2rem,7vw,2.9rem);letter-spacing:-.01em}
+.king .copy{margin:16px auto 0;text-align:center}
 
-/* ---------- 5 · LOVENSE table ---------- */
 .lov-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.lov-sub{color:var(--rose);font-family:"JetBrains Mono",monospace;font-size:.72rem;
-  letter-spacing:.16em;text-transform:uppercase}
-.levels{width:100%;border-collapse:collapse;margin-top:22px;
-  font-family:"JetBrains Mono",monospace;font-size:.92rem}
+.lov-sub{color:var(--rose);font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.levels{width:100%;border-collapse:collapse;margin-top:22px;font-family:"JetBrains Mono",monospace;font-size:.92rem}
 .levels th,.levels td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line)}
 .levels th{color:var(--ink-faint);font-weight:400;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
 .levels td:first-child{color:var(--gold);font-weight:500}
 .levels .tk{color:var(--ink)}
-.intensity{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 9px;border-radius:var(--pill);border:1px solid var(--line-2);color:var(--ink-soft)}
-.intensity.low{color:var(--ink-soft)}
-.intensity.medium{color:var(--rose);border-color:rgba(232,138,164,.34)}
+.intensity{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:var(--pill);border:1px solid var(--line-2);color:var(--ink-soft)}
+.intensity.medium{color:var(--rose);border-color:rgba(230,206,147,.34)}
 .intensity.high{color:var(--gold);border-color:var(--gold-line)}
-.intensity.ultra{color:#fff;background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-color:transparent}
+.intensity.ultra{color:#1a1408;background:linear-gradient(90deg,var(--gold-deep),var(--gold));border-color:transparent}
 .specials{margin-top:22px;display:grid;gap:2px}
-.special{display:flex;gap:16px;align-items:baseline;padding:12px 10px;border-top:1px solid var(--line);
-  font-family:"JetBrains Mono",monospace}
+.special{display:flex;gap:16px;align-items:baseline;padding:12px 10px;border-top:1px solid var(--line);font-family:"JetBrains Mono",monospace}
 .special:last-child{border-bottom:1px solid var(--line)}
 .special .n{color:var(--gold);font-weight:500;min-width:52px}
 .special .d{color:var(--ink-soft);font-size:.94rem}
 
-/* ---------- 6 · HALL OF FAME ---------- */
 .hof-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
-.edit-toggle{
-  font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-faint);background:transparent;border:1px solid var(--line-2);
-  padding:8px 14px;border-radius:var(--pill);cursor:pointer;transition:all .3s var(--ease)}
+.edit-toggle{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);background:transparent;border:1px solid var(--line-2);padding:8px 14px;border-radius:var(--pill);cursor:pointer;transition:all .3s var(--ease)}
 .edit-toggle:hover{color:var(--gold);border-color:var(--gold-line)}
-.edit-toggle.on{color:var(--bg);background:var(--gold);border-color:transparent}
-.hof-list{display:grid;gap:2px;margin-top:24px}
-.hof-row{display:flex;align-items:center;gap:20px;padding:18px 4px;border-bottom:1px solid var(--line)}
+.edit-toggle.on{color:#1a1408;background:var(--gold);border-color:transparent}
+.hof-list{display:grid;gap:2px;margin-top:22px}
+.hof-row{display:flex;align-items:center;gap:20px;padding:16px 4px;border-bottom:1px solid var(--line)}
 .hof-rank{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.7rem;color:var(--gold);min-width:44px}
-.hof-name{font-size:1.24rem;font-weight:400;color:var(--ink);flex:1;
-  padding:4px 10px;border-radius:8px;outline:none;transition:background .2s}
-.hof-name[contenteditable="true"]{background:rgba(224,179,84,.1);
-  box-shadow:inset 0 0 0 1px var(--gold-line);cursor:text}
+.hof-name{font-size:1.24rem;font-weight:400;color:var(--ink);flex:1;padding:4px 10px;border-radius:8px;outline:none;transition:background .2s}
+.hof-name[contenteditable="true"]{background:rgba(230,189,95,.12);box-shadow:inset 0 0 0 1px var(--gold-line);cursor:text}
 .hof-name:empty::before{content:"[name]";color:var(--ink-faint)}
-.hof-king{margin-top:22px;padding:24px 22px;border-radius:var(--radius);
-  background:radial-gradient(90% 130% at 0% 0%,rgba(224,179,84,.14),transparent 60%),var(--surface);
+.hof-king{margin-top:20px;padding:22px 20px;border-radius:var(--radius);
+  background:radial-gradient(90% 130% at 0% 0%,rgba(230,189,95,.16),transparent 60%),rgba(0,0,0,.3);
   border:1px solid var(--gold-line);display:flex;align-items:center;gap:18px}
 .hof-king .crown-sm{width:30px;height:30px;color:var(--gold);flex:0 0 auto}
-.hof-king .lbl{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
+.hof-king .lbl{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
 .hof-king .hof-name{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.6rem}
 .hof-hint{margin-top:18px;font-size:.94rem;color:var(--ink-soft);font-style:italic}
-.save-flash{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity .3s}
+.save-flash{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity .3s}
 .save-flash.show{opacity:1}
 
-/* ---------- 7 · PRIVATE ---------- */
 .private-stat{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
-.pstat{font-family:"JetBrains Mono",monospace}
-.pstat b{display:block;font-size:1.8rem;color:var(--gold);font-weight:500;line-height:1}
-.pstat span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.pstat b{display:block;font-size:1.8rem;color:var(--gold);font-weight:500;line-height:1;font-family:"JetBrains Mono",monospace}
+.pstat span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-family:"JetBrains Mono",monospace}
 
-/* ---------- 8 · FIND US ---------- */
-.tiles{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px}
+/* Find Us — text tiles (no image placeholders) */
+.tiles{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
 @media(min-width:820px){.tiles{grid-template-columns:repeat(3,1fr)}}
-.tile{display:block;border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--line-2);background:var(--surface);
-  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+.tile{display:flex;flex-direction:column;padding:24px;border-radius:var(--radius);border:1px solid var(--line-2);
+  background:rgba(0,0,0,.32);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
 .tile:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--gold-line)}
-.tile__img{position:relative;aspect-ratio:4/5;
-  background:linear-gradient(140deg,var(--surface-2),var(--plum));display:grid;place-items:center}
-.tile__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tile__ph{text-align:center;color:var(--ink-faint);font-family:"JetBrains Mono",monospace;
-  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.9}
-.tile__ph svg{width:26px;height:26px;margin:0 auto 10px;stroke:var(--ink-faint);opacity:.7}
-.tile__body{padding:20px 20px 24px}
-.tile__plat{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;
-  font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
-.tile__handle{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:var(--ink)}
-.tile__desc{margin-top:10px;font-size:.92rem;color:var(--ink-soft);line-height:1.55}
+.tile__plat{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.tile__handle{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.6rem;color:var(--ink)}
+.tile__desc{margin-top:10px;font-size:.92rem;color:var(--ink-soft);line-height:1.55;flex:1}
 .tier-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.chip{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.04em;
-  padding:6px 11px;border-radius:var(--pill);border:1px solid var(--line-2);color:var(--ink-soft)}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.04em;padding:6px 11px;border-radius:var(--pill);border:1px solid var(--line-2);color:var(--ink-soft)}
 .chip b{color:var(--ink);font-weight:500}
-.chip--promo{border-color:var(--gold-line);color:var(--gold);background:rgba(224,179,84,.08)}
+.chip--promo{border-color:var(--gold-line);color:var(--gold);background:rgba(230,189,95,.09)}
 .chip--promo b{color:var(--gold)}
-.tile__go{margin-top:16px;display:inline-flex;align-items:center;gap:8px;
-  font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.tile__go{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .tile__go svg{width:14px;height:14px}
 
-/* ---------- 9 · CUSTOM VIDEOS ---------- */
-.pricegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.pricecard{text-align:center;padding:22px 14px;border-radius:var(--radius);
-  border:1px solid var(--line-2);background:var(--surface)}
-.pricecard .len{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-faint)}
-.pricecard .amt{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.9rem;
-  color:var(--gold);margin-top:6px}
-.loyalty{margin-top:22px;padding:18px 22px;border-radius:var(--radius);
-  border:1px dashed var(--gold-line);background:rgba(224,179,84,.04);
-  font-size:.96rem;color:var(--ink-soft)}
+.pricegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.pricecard{text-align:center;padding:22px 14px;border-radius:var(--radius);border:1px solid var(--line-2);background:rgba(0,0,0,.3)}
+.pricecard .len{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.pricecard .amt{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.9rem;color:var(--gold);margin-top:6px}
+.loyalty{margin-top:22px;padding:18px 22px;border-radius:var(--radius);border:1px dashed var(--gold-line);background:rgba(230,189,95,.05);font-size:.96rem;color:var(--ink-soft)}
 .loyalty b{color:var(--gold);font-weight:500}
-.custom-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
-@media(min-width:720px){.custom-photos{grid-template-columns:repeat(4,1fr)}}
-.cphoto{aspect-ratio:3/4;border-radius:12px;overflow:hidden;border:1px solid var(--line-2);
-  background:linear-gradient(140deg,var(--surface-2),var(--plum));display:grid;place-items:center;position:relative}
-.cphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cphoto span{color:var(--ink-faint);font-family:"JetBrains Mono",monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase}
-.photos-cap{text-align:center;margin-top:14px;font-style:italic;color:var(--ink-soft);font-size:.96rem}
 
-/* ---------- 10 · US ---------- */
-.us-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:26px}
+.us-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
 @media(min-width:720px){.us-grid{grid-template-columns:1fr 1fr}}
-.person{padding:24px;border-radius:var(--radius);border:1px solid var(--line-2);background:var(--surface)}
+.person{padding:24px;border-radius:var(--radius);border:1px solid var(--line-2);background:rgba(0,0,0,.3)}
 .person h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:2rem;color:var(--gold)}
-.person dl{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;
-  font-family:"JetBrains Mono",monospace;font-size:.86rem}
+.person dl{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-family:"JetBrains Mono",monospace;font-size:.86rem}
 .person dt{color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;align-self:center}
 .person dd{color:var(--ink)}
-.livebar{margin-top:24px;padding:22px;border-radius:var(--radius);border:1px solid var(--gold-line);
-  background:rgba(224,179,84,.05)}
-.livebar .lbl{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
-.livedot{width:8px;height:8px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 0 rgba(232,138,164,.6);
-  animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,138,164,.5)}70%{box-shadow:0 0 0 8px rgba(232,138,164,0)}100%{box-shadow:0 0 0 0 rgba(232,138,164,0)}}
+.livebar{margin-top:22px;padding:22px;border-radius:var(--radius);border:1px solid var(--gold-line);background:rgba(230,189,95,.05)}
+.livebar .lbl{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
+.livedot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,189,95,.5)}70%{box-shadow:0 0 0 8px rgba(230,189,95,0)}100%{box-shadow:0 0 0 0 rgba(230,189,95,0)}}
 .hours{margin-top:14px;display:grid;gap:8px;font-family:"JetBrains Mono",monospace;font-size:.88rem}
 .hours div{display:flex;justify-content:space-between;gap:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
 .hours .z{color:var(--ink-soft)}.hours .t{color:var(--gold)}
 
-/* ---------- 11 · RULES ---------- */
-.rules{list-style:none;display:grid;gap:2px;margin-top:22px}
+.rules{list-style:none;display:grid;gap:2px;margin-top:20px}
 .rules li{display:flex;gap:14px;padding:15px 4px;border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:1rem}
 .rules li svg{flex:0 0 auto;width:18px;height:18px;stroke:var(--gold);margin-top:4px}
-.dont{margin-top:26px;padding:22px;border-radius:var(--radius);border:1px solid var(--line-2);background:var(--surface)}
+.dont{margin-top:24px;padding:22px;border-radius:var(--radius);border:1px solid var(--line-2);background:rgba(0,0,0,.3)}
 .dont .lbl{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
 .dont p{margin-top:10px;color:var(--ink-soft)}
 .dont b{color:var(--ink);font-weight:500}
 
-/* ---------- Footer / privacy ---------- */
-.foot{padding:56px 0 48px;text-align:center;border-top:1px solid var(--line);margin-top:40px}
-.foot .copy{margin:0 auto 20px;text-align:center;font-size:.98rem}
+.foot{padding:40px 26px 44px;text-align:center;border-radius:var(--radius-lg);
+  background:var(--glass-2);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line-2)}
+.foot .copy{margin:0 auto 18px;text-align:center;font-size:.98rem;max-width:46ch}
 .foot .meta{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.14em;color:var(--ink-faint)}
 .foot .badge{color:var(--gold)}
-.age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.16em;
-  color:var(--rose);border:1px solid rgba(232,138,164,.3);padding:5px 12px;border-radius:var(--pill);margin-bottom:20px}
+.age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.16em;color:var(--rose);border:1px solid rgba(230,206,147,.3);padding:5px 12px;border-radius:var(--pill);margin-bottom:18px}
+.tail{height:56px}
 </style>
 </head>
 <body>
 
+<div class="stage">
+  <div class="stage__img"></div>
+  <div class="stage__scrim"></div>
+  <div class="stage__grain"></div>
+</div>
+
 <div class="progress"><div class="progress__fill"></div></div>
 
-<!-- ===== 1 · BANNER ===== -->
-<section class="banner">
-  <div class="banner__glow"></div>
-  <div class="wrap">
-    <div class="banner__ey">Rebi <span style="color:var(--rose)">&amp;</span> Ricci</div>
-    <h1>REBI<br><span class="amp">&amp;</span><br>RICCI</h1>
+<div class="content">
+
+  <!-- 1 · BANNER -->
+  <section class="banner wrap">
+    <div class="banner__ey">Rebi &amp; Ricci</div>
+    <h1>REBI <span class="amp">&amp;</span> RICCI</h1>
     <p class="banner__sub">come play with us</p>
-  </div>
-  <div class="scrollcue">scroll
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-  </div>
-</section>
-
-<!-- ===== 2 · ABOUT US ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">About us</div>
-    <h2 class="title">Hi! We're Rebi<br>and Ricci.</h2>
-    <div class="copy">
-      <p>Together two years and still can't keep our hands off each other. We're a switch couple, which is a fancy way of saying sometimes she's the boss, sometimes he is.</p>
-      <p>And in here? That part is up to you. Fun, right?</p>
-      <p>Come say hi first. We're friendly, we promise, and we love knowing who we're playing with.</p>
+    <div class="scrollcue">scroll
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- ===== 3 · HOW THIS ROOM WORKS ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">How this room works</div>
-    <h2 class="title">Tip with a little<br>note.</h2>
-    <div class="copy">
-      <p>Tell us what you'd love to see. We read every single one, even the tiny tips.</p>
-      <p>Whoever tips the most in an hour becomes our king and gets to pick who's in charge of who. Then it resets and someone new can steal the crown.</p>
-      <p>Be sweet to us and you'll get away with a lot.</p>
-    </div>
-  </div>
-  <div class="menu-callout reveal d1">
-    <span class="menu-cmd">/menu</span>
-    <p>Type it in the chat to see the whole list of everything you can ask for.</p>
-  </div>
-</section>
-
-<!-- ===== 4 · KING OF THE ROOM ===== -->
-<section class="block wrap">
-  <div class="king reveal">
-    <svg class="crown" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4 4 5-6 5 6 4-4-1.5 12h-15L3 7z" opacity=".95"/><rect x="4.5" y="19" width="15" height="2.4" rx="1.2"/></svg>
-    <div class="kicker" style="justify-content:center">King of the room</div>
-    <h2>Tip the most in an hour<br>and the crown is yours.</h2>
-    <div class="copy">
-      <p>The king decides which one of us has to behave for the other. We'll do it happily — honestly, it's our favourite part too.</p>
-      <p>New crown every hour, so it's always up for grabs. Steal it from someone and we'll make a whole thing of it, don't you worry.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 5 · LOVENSE ===== -->
-<section class="block wrap">
-  <div class="card reveal">
-    <div class="lov-head">
-      <h2 class="title" style="font-size:clamp(1.7rem,5.5vw,2.4rem)">Lovense</h2>
-      <span class="lov-sub">she feels every single tip</span>
-    </div>
-    <div class="copy">The toy's on and hooked up to the chat, so whatever you send, she feels it right away. Have fun with it.</div>
-
-    <table class="levels">
-      <thead><tr><th>Tokens</th><th>Time</th><th>Intensity</th></tr></thead>
-      <tbody>
-        <tr><td>1 – 14</td><td class="tk">2 sec</td><td><span class="intensity low">low</span></td></tr>
-        <tr><td>15 – 49</td><td class="tk">5 sec</td><td><span class="intensity low">low</span></td></tr>
-        <tr><td>50 – 99</td><td class="tk">12 sec</td><td><span class="intensity medium">medium</span></td></tr>
-        <tr><td>100 – 249</td><td class="tk">20 sec</td><td><span class="intensity high">high</span></td></tr>
-        <tr><td>250 – 499</td><td class="tk">35 sec</td><td><span class="intensity high">high</span></td></tr>
-        <tr><td>500 – 999</td><td class="tk">60 sec</td><td><span class="intensity ultra">ultra high</span></td></tr>
-        <tr><td>1000 +</td><td class="tk">120 sec</td><td><span class="intensity ultra">ultra high</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="kicker" style="margin-top:28px">Specials</div>
-    <div class="specials">
-      <div class="special"><span class="n">55</span><span class="d">surprise level — we won't tell you which</span></div>
-      <div class="special"><span class="n">88</span><span class="d">30 sec · earthquake</span></div>
-      <div class="special"><span class="n">111</span><span class="d">45 sec · fireworks</span></div>
-      <div class="special"><span class="n">333</span><span class="d">75 sec · wave</span></div>
-      <div class="special"><span class="n">777</span><span class="d">pause the queue for 10 sec</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 6 · HALL OF FAME ===== -->
-<section class="block wrap">
-  <div class="card card--gold reveal">
-    <div class="hof-head">
-      <div>
-        <div class="kicker">Hall of fame</div>
-        <h2 class="title" style="font-size:clamp(1.8rem,6vw,2.6rem)">Our favourite three.</h2>
-      </div>
-      <button class="edit-toggle" id="hofEdit" type="button" aria-pressed="false">✎ Edit names</button>
-    </div>
-    <div class="copy">These names stay right here until someone sweet enough comes and takes their spot.</div>
-
-    <div class="hof-list">
-      <div class="hof-row"><span class="hof-rank">#1</span><span class="hof-name" data-hof="1"></span></div>
-      <div class="hof-row"><span class="hof-rank">#2</span><span class="hof-name" data-hof="2"></span></div>
-      <div class="hof-row"><span class="hof-rank">#3</span><span class="hof-name" data-hof="3"></span></div>
-    </div>
-
-    <div class="hof-king">
-      <svg class="crown-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4 4 5-6 5 6 4-4-1.5 12h-15L3 7z"/><rect x="4.5" y="19" width="15" height="2.4" rx="1.2"/></svg>
-      <div style="flex:1">
-        <span class="lbl">This hour's king</span>
-        <span class="hof-name" data-hof="king"></span>
+  <!-- 2 · ABOUT -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">About us</div>
+      <h2 class="title">Hi! We're Rebi<br>and Ricci.</h2>
+      <div class="copy">
+        <p>Together two years and still can't keep our hands off each other. We're a switch couple, which is a fancy way of saying sometimes she's the boss, sometimes he is.</p>
+        <p>And in here? That part is up to you. Fun, right?</p>
+        <p>Come say hi first. We're friendly, we promise, and we love knowing who we're playing with.</p>
       </div>
     </div>
+  </section>
 
-    <p class="hof-hint">Want to see your name up here? You know what to do. <span class="save-flash" id="saveFlash">saved ✓</span></p>
-  </div>
-</section>
-
-<!-- ===== 7 · PRIVATE SHOW ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">Private show</div>
-    <h2 class="title">Want us all to<br>yourself, just you?</h2>
-    <div class="private-stat">
-      <div class="pstat"><b>60</b><span>tokens / min</span></div>
-      <div class="pstat"><b>15</b><span>min minimum</span></div>
-      <div class="pstat"><b>555</b><span>tip to skip the line</span></div>
+  <!-- 3 · HOW THIS ROOM WORKS -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">How this room works</div>
+      <h2 class="title">Tip with a little note.</h2>
+      <div class="copy">
+        <p>Tell us what you'd love to see. We read every single one, even the tiny tips.</p>
+        <p>Whoever tips the most in an hour becomes our king and gets to pick who's in charge of who. Then it resets and someone new can steal the crown.</p>
+        <p>Be sweet to us and you'll get away with a lot.</p>
+      </div>
+      <div class="menu-callout">
+        <span class="menu-cmd">/menu</span>
+        <p>Type it in the chat to see the whole list of everything you can ask for.</p>
+      </div>
     </div>
-    <div class="copy" style="margin-top:22px">
-      <p>In a hurry? Tip 555 and we'll jump straight in.</p>
-      <p>Pop your idea in a tip note first and we'll tell you if it's something we'd have fun doing with you. Just check we're free before you start.</p>
+  </section>
+
+  <!-- 4 · KING -->
+  <section class="block wrap">
+    <div class="panel panel--gold king reveal">
+      <svg class="crown" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4 4 5-6 5 6 4-4-1.5 12h-15L3 7z"/><rect x="4.5" y="19" width="15" height="2.4" rx="1.2"/></svg>
+      <div class="kicker" style="justify-content:center">King of the room</div>
+      <h2>Tip the most in an hour<br>and the crown is yours.</h2>
+      <div class="copy">
+        <p>The king decides which one of us has to behave for the other. We'll do it happily — honestly, it's our favourite part too.</p>
+        <p>New crown every hour, so it's always up for grabs. Steal it from someone and we'll make a whole thing of it, don't you worry.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="wrap"><div class="rule"></div></div>
+  <!-- 5 · LOVENSE -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="lov-head">
+        <h2 class="title" style="font-size:clamp(1.7rem,5.5vw,2.4rem)">Lovense</h2>
+        <span class="lov-sub">she feels every single tip</span>
+      </div>
+      <div class="copy">The toy's on and hooked up to the chat, so whatever you send, she feels it right away. Have fun with it.</div>
+      <table class="levels">
+        <thead><tr><th>Tokens</th><th>Time</th><th>Intensity</th></tr></thead>
+        <tbody>
+          <tr><td>1 – 14</td><td class="tk">2 sec</td><td><span class="intensity">low</span></td></tr>
+          <tr><td>15 – 49</td><td class="tk">5 sec</td><td><span class="intensity">low</span></td></tr>
+          <tr><td>50 – 99</td><td class="tk">12 sec</td><td><span class="intensity medium">medium</span></td></tr>
+          <tr><td>100 – 249</td><td class="tk">20 sec</td><td><span class="intensity high">high</span></td></tr>
+          <tr><td>250 – 499</td><td class="tk">35 sec</td><td><span class="intensity high">high</span></td></tr>
+          <tr><td>500 – 999</td><td class="tk">60 sec</td><td><span class="intensity ultra">ultra high</span></td></tr>
+          <tr><td>1000 +</td><td class="tk">120 sec</td><td><span class="intensity ultra">ultra high</span></td></tr>
+        </tbody>
+      </table>
+      <div class="kicker" style="margin-top:26px">Specials</div>
+      <div class="specials">
+        <div class="special"><span class="n">55</span><span class="d">surprise level — we won't tell you which</span></div>
+        <div class="special"><span class="n">88</span><span class="d">30 sec · earthquake</span></div>
+        <div class="special"><span class="n">111</span><span class="d">45 sec · fireworks</span></div>
+        <div class="special"><span class="n">333</span><span class="d">75 sec · wave</span></div>
+        <div class="special"><span class="n">777</span><span class="d">pause the queue for 10 sec</span></div>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== 8 · FIND US ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">Find us</div>
-    <h2 class="title">Where the rest<br>of us lives.</h2>
-  </div>
-  <div class="tiles reveal d1">
-
-    <a class="tile" href="https://fansly.com/veloursecrets" target="_blank" rel="noopener">
-      <div class="tile__img">
-        <!-- swap: <img src="assets/find-couple.jpg" alt="Rebi & Ricci on Fansly"> -->
-        <div class="tile__ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          Image
+  <!-- 6 · HALL OF FAME -->
+  <section class="block wrap">
+    <div class="panel panel--gold reveal">
+      <div class="hof-head">
+        <div>
+          <div class="kicker">Hall of fame</div>
+          <h2 class="title" style="font-size:clamp(1.8rem,6vw,2.6rem)">Our favourite three.</h2>
+        </div>
+        <button class="edit-toggle" id="hofEdit" type="button" aria-pressed="false">✎ Edit names</button>
+      </div>
+      <div class="copy">These names stay right here until someone sweet enough comes and takes their spot.</div>
+      <div class="hof-list">
+        <div class="hof-row"><span class="hof-rank">#1</span><span class="hof-name" data-hof="1"></span></div>
+        <div class="hof-row"><span class="hof-rank">#2</span><span class="hof-name" data-hof="2"></span></div>
+        <div class="hof-row"><span class="hof-rank">#3</span><span class="hof-name" data-hof="3"></span></div>
+      </div>
+      <div class="hof-king">
+        <svg class="crown-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l4 4 5-6 5 6 4-4-1.5 12h-15L3 7z"/><rect x="4.5" y="19" width="15" height="2.4" rx="1.2"/></svg>
+        <div style="flex:1">
+          <span class="lbl">This hour's king</span>
+          <span class="hof-name" data-hof="king"></span>
         </div>
       </div>
-      <div class="tile__body">
-        <div class="tile__plat">◆ Fansly</div>
-        <div class="tile__handle">veloursecrets</div>
-        <div class="tile__desc">The two of us, uncut. Full scenes, stream recordings, and the nights we stay in and don't go live at all. This is where we actually get to know people.</div>
-        <div class="tier-chips">
-          <span class="chip chip--promo"><b>Softcore</b> $4.99 first month <span style="opacity:.6">· then $9.99</span></span>
-          <span class="chip"><b>Hardcore</b> $12.99 <span style="opacity:.6">til end of Aug · then $24.99</span></span>
-        </div>
-        <span class="tile__go">Open Fansly
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <a class="tile" href="https://fansly.com/badbunnyyy77" target="_blank" rel="noopener">
-      <div class="tile__img">
-        <!-- swap: <img src="assets/find-rebi.jpg" alt="Rebi on Fansly"> -->
-        <div class="tile__ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          Image
-        </div>
-      </div>
-      <div class="tile__body">
-        <div class="tile__plat">◆ Fansly</div>
-        <div class="tile__handle">badbunnyyy77</div>
-        <div class="tile__desc">Just Rebi. Her soft, feminine side… and the other side that likes being in charge. If you'd rather have her all to yourself, this is the one.</div>
-        <div class="tier-chips">
-          <span class="chip"><b>Softcore</b> $5</span>
-          <span class="chip"><b>Hardcore</b> $20</span>
-        </div>
-        <span class="tile__go">Open Fansly
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <a class="tile" href="https://instagram.com/v.e.l.o.u.r._x" target="_blank" rel="noopener">
-      <div class="tile__img">
-        <!-- swap: <img src="assets/find-insta.jpg" alt="Rebi & Ricci on Instagram"> -->
-        <div class="tile__ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          Image
-        </div>
-      </div>
-      <div class="tile__body">
-        <div class="tile__plat">◆ Instagram</div>
-        <div class="tile__handle">v.e.l.o.u.r._x</div>
-        <div class="tile__desc">The everyday us. Travelling, wellness, eating out. Come follow if you want to see who we are with our clothes on.</div>
-        <span class="tile__go">Follow
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- ===== 9 · CUSTOM VIDEOS ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">Custom videos</div>
-    <h2 class="title">Something that exists<br>just because you asked.</h2>
-    <div class="copy">
-      <p>Tell us what you've been picturing — where we are, what we're wearing, what we say, how it starts. The more you tell us, the more it becomes yours.</p>
-      <p>Then we make it, only for you. And it stays that way — nobody else ever sees it. Not on Fansly, not anywhere. Just yours.</p>
+      <p class="hof-hint">Want to see your name up here? You know what to do. <span class="save-flash" id="saveFlash">saved ✓</span></p>
     </div>
-  </div>
+  </section>
 
-  <div class="pricegrid reveal d1">
-    <div class="pricecard"><div class="len">10 min</div><div class="amt">€100</div></div>
-    <div class="pricecard"><div class="len">20 min</div><div class="amt">€200</div></div>
-    <div class="pricecard"><div class="len">30 min</div><div class="amt">€300</div></div>
-  </div>
-
-  <div class="loyalty reveal d1">
-    Want your name in it? Something you've never asked anyone before? Go on, tell us — we don't shock easily and we never, ever judge.<br><br>
-    For the ones who keep coming back — <b>every 3rd video €25 off</b>, <b>every 6th €50 off</b>. We keep count, and we remember you.<br><br>
-    Ready in 3 days. We'll sort out all the details first so it's exactly how you pictured it. Never done this before? Just say so and we'll walk you through the whole thing.
-  </div>
-
-  <div class="custom-photos reveal d2">
-    <!-- swap each: <img src="assets/custom-1.jpg" alt="Real order"> -->
-    <div class="cphoto"><span>Photo 1</span></div>
-    <div class="cphoto"><span>Photo 2</span></div>
-    <div class="cphoto"><span>Photo 3</span></div>
-    <div class="cphoto"><span>Photo 4</span></div>
-  </div>
-  <p class="photos-cap reveal d2">Real orders from happy customers.</p>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- ===== 10 · US ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">Us</div>
-    <h2 class="title">The two of us.</h2>
-  </div>
-  <div class="us-grid reveal d1">
-    <div class="person">
-      <h3>Rebi</h3>
-      <dl>
-        <dt>Age</dt><dd>27</dd>
-        <dt>Height</dt><dd>165 cm · 5'5"</dd>
-        <dt>Hair</dt><dd>Brown</dd>
-        <dt>Shape</dt><dd>Curvy</dd>
-      </dl>
+  <!-- 7 · PRIVATE -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">Private show</div>
+      <h2 class="title">Want us all to yourself, just you?</h2>
+      <div class="private-stat">
+        <div class="pstat"><b>60</b><span>tokens / min</span></div>
+        <div class="pstat"><b>15</b><span>min minimum</span></div>
+        <div class="pstat"><b>555</b><span>tip to skip the line</span></div>
+      </div>
+      <div class="copy" style="margin-top:20px">
+        <p>In a hurry? Tip 555 and we'll jump straight in.</p>
+        <p>Pop your idea in a tip note first and we'll tell you if it's something we'd have fun doing with you. Just check we're free before you start.</p>
+      </div>
     </div>
-    <div class="person">
-      <h3>Ricci</h3>
-      <dl>
-        <dt>Age</dt><dd>35</dd>
-        <dt>Height</dt><dd>180 cm · 5'11"</dd>
-        <dt>Build</dt><dd>Muscular</dd>
-      </dl>
+  </section>
+
+  <!-- 8 · FIND US -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">Find us</div>
+      <h2 class="title">Where the rest of us lives.</h2>
+      <div class="tiles">
+        <a class="tile" href="https://fansly.com/veloursecrets" target="_blank" rel="noopener">
+          <div class="tile__plat">◆ Fansly</div>
+          <div class="tile__handle">veloursecrets</div>
+          <div class="tile__desc">The two of us, uncut. Full scenes, stream recordings, and the nights we stay in and don't go live at all.</div>
+          <div class="tier-chips">
+            <span class="chip chip--promo"><b>Softcore</b> $4.99 first month</span>
+            <span class="chip"><b>Hardcore</b> $12.99 til Aug</span>
+          </div>
+          <span class="tile__go">Open Fansly<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="tile" href="https://fansly.com/badbunnyyy77" target="_blank" rel="noopener">
+          <div class="tile__plat">◆ Fansly</div>
+          <div class="tile__handle">badbunnyyy77</div>
+          <div class="tile__desc">Just Rebi. Her soft, feminine side… and the other side that likes being in charge.</div>
+          <div class="tier-chips">
+            <span class="chip"><b>Softcore</b> $5</span>
+            <span class="chip"><b>Hardcore</b> $20</span>
+          </div>
+          <span class="tile__go">Open Fansly<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a class="tile" href="https://instagram.com/v.e.l.o.u.r._x" target="_blank" rel="noopener">
+          <div class="tile__plat">◆ Instagram</div>
+          <div class="tile__handle">v.e.l.o.u.r._x</div>
+          <div class="tile__desc">The everyday us. Travelling, wellness, eating out. Come follow if you want to see who we are with our clothes on.</div>
+          <span class="tile__go">Follow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="livebar reveal d1">
-    <div class="lbl"><span class="livedot"></span>Live almost every day · We speak English &amp; German</div>
-    <div class="hours">
-      <div><span class="z">Vienna</span><span class="t">16:00 – 04:00</span></div>
-      <div><span class="z">New York / Toronto</span><span class="t">10 AM – 10 PM</span></div>
-      <div><span class="z">Los Angeles / Vancouver</span><span class="t">7 AM – 7 PM</span></div>
+  <!-- 9 · CUSTOM VIDEOS -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">Custom videos</div>
+      <h2 class="title">Something that exists just because you asked.</h2>
+      <div class="copy">
+        <p>Tell us what you've been picturing — where we are, what we're wearing, what we say, how it starts. The more you tell us, the more it becomes yours.</p>
+        <p>Then we make it, only for you. And it stays that way — nobody else ever sees it. Not on Fansly, not anywhere. Just yours.</p>
+      </div>
+      <div class="pricegrid">
+        <div class="pricecard"><div class="len">10 min</div><div class="amt">€100</div></div>
+        <div class="pricecard"><div class="len">20 min</div><div class="amt">€200</div></div>
+        <div class="pricecard"><div class="len">30 min</div><div class="amt">€300</div></div>
+      </div>
+      <div class="loyalty">
+        Want your name in it? Something you've never asked anyone before? Go on, tell us — we don't shock easily and we never, ever judge.<br><br>
+        For the ones who keep coming back — <b>every 3rd video €25 off</b>, <b>every 6th €50 off</b>. We keep count, and we remember you.<br><br>
+        Ready in 3 days. Never done this before? Just say so and we'll walk you through the whole thing.
+      </div>
+      <!-- Customer photos go here later (4 images + caption "Real orders from happy customers.") -->
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="wrap"><div class="rule"></div></div>
+  <!-- 10 · US -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">Us</div>
+      <h2 class="title">The two of us.</h2>
+      <div class="us-grid">
+        <div class="person">
+          <h3>Rebi</h3>
+          <dl><dt>Age</dt><dd>27</dd><dt>Height</dt><dd>165 cm · 5'5"</dd><dt>Hair</dt><dd>Brown</dd><dt>Shape</dt><dd>Curvy</dd></dl>
+        </div>
+        <div class="person">
+          <h3>Ricci</h3>
+          <dl><dt>Age</dt><dd>35</dd><dt>Height</dt><dd>180 cm · 5'11"</dd><dt>Build</dt><dd>Muscular</dd></dl>
+        </div>
+      </div>
+      <div class="livebar">
+        <div class="lbl"><span class="livedot"></span>Live almost every day · We speak English &amp; German</div>
+        <div class="hours">
+          <div><span class="z">Vienna</span><span class="t">16:00 – 04:00</span></div>
+          <div><span class="z">New York / Toronto</span><span class="t">10 AM – 10 PM</span></div>
+          <div><span class="z">Los Angeles / Vancouver</span><span class="t">7 AM – 7 PM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== 11 · RULES ===== -->
-<section class="block wrap">
-  <div class="reveal">
-    <div class="kicker">Our rules</div>
-    <h2 class="title">Our people are lovely —<br>let's keep it that way.</h2>
-    <ul class="rules">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tip first, then ask — requests without a tip just don't get answered.</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dirty talk is for tippers, sorry!</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Our prices aren't up for haggling.</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Please don't advertise other models in here.</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No recording, screenshotting or reposting.</li>
-    </ul>
-  </div>
-  <div class="dont reveal d1">
-    <span class="lbl">We don't do</span>
-    <p><b>Cam2cam.</b> But custom videos? Those we adore making — see above.</p>
-    <p style="margin-top:8px">Ask us about anything else — we're a lot more open than this little list makes us sound.</p>
-  </div>
-</section>
+  <!-- 11 · RULES -->
+  <section class="block wrap">
+    <div class="panel reveal">
+      <div class="kicker">Our rules</div>
+      <h2 class="title">Our people are lovely — let's keep it that way.</h2>
+      <ul class="rules">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tip first, then ask — requests without a tip just don't get answered.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dirty talk is for tippers, sorry!</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Our prices aren't up for haggling.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Please don't advertise other models in here.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No recording, screenshotting or reposting.</li>
+      </ul>
+      <div class="dont">
+        <span class="lbl">We don't do</span>
+        <p><b>Cam2cam.</b> But custom videos? Those we adore making — see above.</p>
+        <p style="margin-top:8px">Ask us about anything else — we're a lot more open than this little list makes us sound.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== 12 · PRIVACY / FOOTER ===== -->
-<footer class="foot wrap">
-  <span class="age">18+ only</span>
-  <div class="copy" style="max-width:46ch">
-    Everything on this page is ours. Recording, screenshotting or reposting any of it without our okay isn't allowed. This is a live, one-time viewing only.
-  </div>
-  <div class="meta">Protected by <span class="badge">bruqi.com</span> · reported through Chaturbate's DMCA process · © <span id="yr">2026</span> Rebi &amp; Ricci</div>
-</footer>
+  <!-- 12 · PRIVACY / FOOTER -->
+  <section class="block wrap">
+    <footer class="foot reveal">
+      <span class="age">18+ only</span>
+      <div class="copy">Everything on this page is ours. Recording, screenshotting or reposting any of it without our okay isn't allowed. This is a live, one-time viewing only.</div>
+      <div class="meta">Protected by <span class="badge">bruqi.com</span> · reported through Chaturbate's DMCA process · © <span id="yr">2026</span> Rebi &amp; Ricci</div>
+    </footer>
+  </section>
+
+  <div class="tail"></div>
+</div>
 
 <script>
 (function(){
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // ---- Hall of Fame: editable + saved on this device (localStorage) ----
+  document.getElementById('yr').textContent=new Date().getFullYear();
   var KEY='rr_hof_v1';
   var defaults={"1":"[name]","2":"[name]","3":"[name]","king":"[name]"};
-  var store;
-  try{ store=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ store={}; }
+  var store; try{ store=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ store={}; }
   var fields=document.querySelectorAll('.hof-name');
-
-  fields.forEach(function(el){
-    var k=el.getAttribute('data-hof');
-    el.textContent=(store[k]!=null?store[k]:defaults[k]);
-  });
-
-  var flash=document.getElementById('saveFlash');
-  var flashT;
-  function save(){
-    var data={};
-    fields.forEach(function(el){ data[el.getAttribute('data-hof')]=el.textContent.trim(); });
-    try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){}
-    if(flash){ flash.classList.add('show'); clearTimeout(flashT);
-      flashT=setTimeout(function(){ flash.classList.remove('show'); },1400); }
-  }
-
-  var editing=false;
-  var btn=document.getElementById('hofEdit');
-  btn.addEventListener('click', function(){
-    editing=!editing;
-    btn.classList.toggle('on', editing);
-    btn.setAttribute('aria-pressed', editing?'true':'false');
-    btn.textContent = editing ? '✓ Done' : '✎ Edit names';
-    fields.forEach(function(el){
-      el.setAttribute('contenteditable', editing?'true':'false');
-      if(editing && el.textContent.trim()==='[name]') el.textContent='';
-    });
+  fields.forEach(function(el){ var k=el.getAttribute('data-hof'); el.textContent=(store[k]!=null?store[k]:defaults[k]); });
+  var flash=document.getElementById('saveFlash'),flashT;
+  function save(){ var data={}; fields.forEach(function(el){ data[el.getAttribute('data-hof')]=el.textContent.trim(); });
+    try{ localStorage.setItem(KEY,JSON.stringify(data)); }catch(e){}
+    if(flash){ flash.classList.add('show'); clearTimeout(flashT); flashT=setTimeout(function(){ flash.classList.remove('show'); },1400); } }
+  var editing=false,btn=document.getElementById('hofEdit');
+  btn.addEventListener('click',function(){
+    editing=!editing; btn.classList.toggle('on',editing);
+    btn.setAttribute('aria-pressed',editing?'true':'false');
+    btn.textContent=editing?'✓ Done':'✎ Edit names';
+    fields.forEach(function(el){ el.setAttribute('contenteditable',editing?'true':'false'); if(editing&&el.textContent.trim()==='[name]')el.textContent=''; });
     if(editing){ fields[0].focus(); } else { save(); }
   });
   fields.forEach(function(el){
-    el.addEventListener('blur', function(){ if(editing) save(); });
-    el.addEventListener('keydown', function(e){
-      if(e.key==='Enter'){ e.preventDefault(); el.blur(); }
-    });
+    el.addEventListener('blur',function(){ if(editing)save(); });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); el.blur(); } });
   });
 })();
 </script>
