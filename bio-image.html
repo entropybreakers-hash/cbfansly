@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0806;--surface:#16130d;--surface2:#201b12;
+  --ink:#f7f0e6;--soft:#b9b0a2;--faint:#7d766c;
+  --gold:#e6bd5f;--goldd:#b8822e;--rose:#e6ce93;
+  --line:rgba(247,240,230,.12);--line2:rgba(247,240,230,.18);--goldline:rgba(230,189,95,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+body{width:720px;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+.sec{padding:44px 46px;border-top:1px solid var(--line)}
+.kick{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;letter-spacing:3.4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.kick::before{content:"";width:28px;height:1px;background:var(--goldline)}
+.title{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.5px;color:var(--ink)}
+.title.it{font-style:italic}
+.lead{margin-top:16px;color:var(--soft);font-size:17px}
+.lead p+p{margin-top:12px}
+
+/* HERO */
+#s-hero{padding:0;border:0;position:relative;width:720px;height:900px;overflow:hidden;background:#0a0806}
+#s-hero .ph{position:absolute;inset:0;background:url('assets/hero.jpg') center 20%/cover no-repeat}
+#s-hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,6,.15) 0%,rgba(10,8,6,.35) 45%,rgba(10,8,6,.92) 100%)}
+#s-hero .cap{position:absolute;left:0;right:0;bottom:56px;text-align:center}
+#s-hero .ey{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+#s-hero .nm{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:88px;line-height:.94;letter-spacing:-1px;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+#s-hero .nm .amp{font-style:italic;color:var(--gold)}
+#s-hero .sub{margin-top:12px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;color:var(--rose)}
+
+.callout{margin-top:24px;padding:22px 26px;border-radius:14px;background:rgba(230,189,95,.09);border:1px solid var(--goldline);display:flex;align-items:center;gap:22px}
+.callout .cmd{font-family:"JetBrains Mono",monospace;font-size:34px;color:var(--gold);background:#000;border:1px solid var(--goldline);border-radius:12px;padding:6px 22px}
+.callout p{color:var(--soft);font-size:16px}
+
+.king{text-align:center;background:radial-gradient(80% 120% at 50% 0%,rgba(230,189,95,.14),transparent 60%),var(--surface)}
+.king .crown{font-size:46px}
+.king .kick{justify-content:center}
+.king .title{font-style:italic;margin-top:4px}
+.king .lead{margin-left:auto;margin-right:auto;max-width:80%}
+
+table{width:100%;border-collapse:collapse;margin-top:20px;font-family:"JetBrains Mono",monospace;font-size:15px}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--faint);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:400}
+td:first-child{color:var(--gold);font-weight:500}
+.badge{font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 11px;border-radius:999px;border:1px solid var(--line2);color:var(--soft)}
+.badge.m{color:var(--rose);border-color:rgba(230,206,147,.4)}
+.badge.h{color:var(--gold);border-color:var(--goldline)}
+.badge.u{color:#1a1408;background:linear-gradient(90deg,var(--goldd),var(--gold));border:0}
+.spec{margin-top:20px;font-family:"JetBrains Mono",monospace;font-size:15px}
+.spec .r{display:flex;gap:18px;padding:11px 4px;border-top:1px solid var(--line)}
+.spec .n{color:var(--gold);min-width:54px}
+.spec .d{color:var(--soft)}
+
+.hof .row{display:flex;align-items:center;gap:22px;padding:18px 2px;border-bottom:1px solid var(--line);font-size:22px}
+.hof .rk{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;color:var(--gold);min-width:48px}
+.hof .king-row{margin-top:20px;padding:22px;border-radius:14px;background:radial-gradient(90% 130% at 0% 0%,rgba(230,189,95,.16),transparent 60%),#000;border:1px solid var(--goldline)}
+.hof .king-row .l{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.hof .king-row .v{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:28px;margin-top:4px}
+
+.pstat{display:flex;gap:38px;margin-top:20px;font-family:"JetBrains Mono",monospace}
+.pstat b{display:block;font-size:34px;color:var(--gold);font-weight:500;line-height:1}
+.pstat span{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint)}
+
+/* FIND US cards (each rendered separately, clickable in CB) */
+.find{display:block;padding:40px 46px;background:var(--surface);border-top:1px solid var(--line)}
+.find .plat{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.find .h{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:34px;color:var(--ink)}
+.find .d{margin-top:10px;color:var(--soft);font-size:16px}
+.find .chips{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-family:"JetBrains Mono",monospace;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--soft)}
+.chip b{color:var(--ink);font-weight:500}
+.chip.promo{border-color:var(--goldline);color:var(--gold);background:rgba(230,189,95,.1)}
+.chip.promo b{color:var(--gold)}
+.find .go{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+
+.prices{display:flex;gap:14px;margin-top:22px}
+.prices .c{flex:1;text-align:center;padding:22px 8px;border:1px solid var(--line2);border-radius:14px;background:#000}
+.prices .len{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint)}
+.prices .amt{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:32px;color:var(--gold);margin-top:6px}
+.loyal{margin-top:20px;padding:20px 24px;border:1px dashed var(--goldline);border-radius:14px;color:var(--soft);font-size:16px}
+.loyal b{color:var(--gold);font-weight:500}
+
+.us{display:flex;gap:16px;margin-top:22px}
+.us .p{flex:1;padding:24px;border:1px solid var(--line2);border-radius:14px;background:#000}
+.us .p h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:32px;color:var(--gold)}
+.us .p .m{font-family:"JetBrains Mono",monospace;font-size:15px;color:var(--soft);margin-top:10px;line-height:1.8}
+.live{margin-top:20px;padding:24px;border:1px solid var(--goldline);border-radius:14px;background:rgba(230,189,95,.05)}
+.live .l{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.live .h{font-family:"JetBrains Mono",monospace;font-size:15px}
+.live .h div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.live .h .t{color:var(--gold)}
+
+.rules{margin-top:18px;font-size:17px;color:var(--soft)}
+.rules .r{display:flex;gap:14px;padding:14px 2px;border-bottom:1px solid var(--line)}
+.rules .r .c{color:var(--gold)}
+.dont{margin-top:22px;padding:22px;border:1px solid var(--line2);border-radius:14px;background:#000}
+.dont .l{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--rose)}
+.dont p{margin-top:10px;color:var(--soft)}
+.dont b{color:var(--ink);font-weight:500}
+
+.priv{text-align:center}
+.age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:2px;color:var(--rose);border:1px solid rgba(230,206,147,.35);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.priv .meta{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:1px;color:var(--faint);margin-top:12px}
+.priv .meta b{color:var(--gold);font-weight:400}
+</style>
+</head>
+<body>
+
+<div id="s-hero">
+  <div class="ph"></div><div class="scrim"></div>
+  <div class="cap">
+    <div class="ey">Rebi &amp; Ricci</div>
+    <div class="nm">REBI <span class="amp">&amp;</span> RICCI</div>
+    <div class="sub">come play with us</div>
+  </div>
+</div>
+
+<div class="sec" id="s-about">
+  <div class="kick">About us</div>
+  <div class="title">Hi! We're Rebi and Ricci.</div>
+  <div class="lead"><p>Together two years and still can't keep our hands off each other. We're a switch couple — sometimes she's the boss, sometimes he is. And in here? That part is up to you.</p><p>Come say hi first. We're friendly, we promise.</p></div>
+</div>
+
+<div class="sec" id="s-room">
+  <div class="kick">How this room works</div>
+  <div class="title">Tip with a little note.</div>
+  <div class="lead"><p>Tell us what you'd love to see. We read every single one, even the tiny tips. Whoever tips the most in an hour becomes our king. Be sweet to us and you'll get away with a lot.</p></div>
+  <div class="callout"><span class="cmd">/menu</span><p>Type it in the chat to see the whole list of everything you can ask for.</p></div>
+</div>
+
+<div class="sec king" id="s-king">
+  <div class="crown">&#128081;</div>
+  <div class="kick">King of the room</div>
+  <div class="title it">Tip the most in an hour<br>and the crown is yours.</div>
+  <div class="lead"><p>The king decides which one of us has to behave for the other. New crown every hour, so it's always up for grabs.</p></div>
+</div>
+
+<div class="sec" id="s-lovense">
+  <div class="title">Lovense <span style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;color:var(--rose);text-transform:uppercase;vertical-align:middle;">she feels every tip</span></div>
+  <div class="lead"><p>The toy's on and hooked up to the chat, so whatever you send, she feels it right away.</p></div>
+  <table>
+    <tr><th>Tokens</th><th>Time</th><th style="text-align:right">Intensity</th></tr>
+    <tr><td>1 – 14</td><td>2 sec</td><td style="text-align:right"><span class="badge">low</span></td></tr>
+    <tr><td>15 – 49</td><td>5 sec</td><td style="text-align:right"><span class="badge">low</span></td></tr>
+    <tr><td>50 – 99</td><td>12 sec</td><td style="text-align:right"><span class="badge m">medium</span></td></tr>
+    <tr><td>100 – 249</td><td>20 sec</td><td style="text-align:right"><span class="badge h">high</span></td></tr>
+    <tr><td>250 – 499</td><td>35 sec</td><td style="text-align:right"><span class="badge h">high</span></td></tr>
+    <tr><td>500 – 999</td><td>60 sec</td><td style="text-align:right"><span class="badge u">ultra</span></td></tr>
+    <tr><td>1000 +</td><td>120 sec</td><td style="text-align:right"><span class="badge u">ultra</span></td></tr>
+  </table>
+  <div class="kick" style="margin-top:24px">Specials</div>
+  <div class="spec">
+    <div class="r"><span class="n">55</span><span class="d">surprise level — we won't tell you which</span></div>
+    <div class="r"><span class="n">88</span><span class="d">30 sec · earthquake</span></div>
+    <div class="r"><span class="n">111</span><span class="d">45 sec · fireworks</span></div>
+    <div class="r"><span class="n">333</span><span class="d">75 sec · wave</span></div>
+    <div class="r"><span class="n">777</span><span class="d">pause the queue for 10 sec</span></div>
+  </div>
+</div>
+
+<div class="sec hof" id="s-hof">
+  <div class="kick">Hall of fame</div>
+  <div class="title">Our favourite three.</div>
+  <div class="lead" style="margin-bottom:6px">These names stay right here until someone sweet enough takes their spot.</div>
+  <div class="row"><span class="rk">#1</span><span>[name]</span></div>
+  <div class="row"><span class="rk">#2</span><span>[name]</span></div>
+  <div class="row"><span class="rk">#3</span><span>[name]</span></div>
+  <div class="king-row"><span class="l">&#128081; This hour's king</span><div class="v">[name]</div></div>
+</div>
+
+<div class="sec" id="s-private">
+  <div class="kick">Private show</div>
+  <div class="title">Want us all to yourself, just you?</div>
+  <div class="pstat"><div><b>60</b><span>tokens / min</span></div><div><b>15</b><span>min minimum</span></div><div><b>555</b><span>skip the line</span></div></div>
+  <div class="lead"><p>Pop your idea in a tip note first and we'll tell you if it's something we'd have fun doing with you.</p></div>
+</div>
+
+<div class="sec" id="s-findhead" style="padding-bottom:18px">
+  <div class="kick">Find us</div>
+  <div class="title">Where the rest of us lives.</div>
+</div>
+
+<a id="s-find-couple" class="find" href="#">
+  <div class="plat">&#9670; Fansly</div>
+  <div class="h">yourdreamcouple</div>
+  <div class="d">The two of us, uncut. Full scenes, stream recordings, and the nights we stay in.</div>
+  <div class="chips"><span class="chip promo"><b>Softcore</b> $4.99 first month</span><span class="chip"><b>Hardcore</b> $12.99 til Aug</span></div>
+  <div class="go">Open Fansly &#8599;</div>
+</a>
+
+<a id="s-find-rebi" class="find" href="#">
+  <div class="plat">&#9670; Fansly</div>
+  <div class="h">badbunnyyy77</div>
+  <div class="d">Just Rebi. Her soft, feminine side… and the other side that likes being in charge.</div>
+  <div class="chips"><span class="chip"><b>Softcore</b> $5</span><span class="chip"><b>Hardcore</b> $20</span></div>
+  <div class="go">Open Fansly &#8599;</div>
+</a>
+
+<a id="s-find-insta" class="find" href="#">
+  <div class="plat">&#9670; Instagram</div>
+  <div class="h">v.e.l.o.u.r._x</div>
+  <div class="d">The everyday us. Travelling, wellness, eating out. See who we are with our clothes on.</div>
+  <div class="go">Follow &#8599;</div>
+</a>
+
+<div class="sec" id="s-custom">
+  <div class="kick">Custom videos</div>
+  <div class="title">Just because you asked.</div>
+  <div class="lead"><p>Tell us what you've been picturing. Then we make it, only for you — nobody else ever sees it. Not on Fansly, not anywhere. Just yours.</p></div>
+  <div class="prices"><div class="c"><div class="len">10 min</div><div class="amt">&euro;100</div></div><div class="c"><div class="len">20 min</div><div class="amt">&euro;200</div></div><div class="c"><div class="len">30 min</div><div class="amt">&euro;300</div></div></div>
+  <div class="loyal">For the ones who keep coming back — <b>every 3rd video &euro;25 off</b>, <b>every 6th &euro;50 off</b>. Ready in 3 days.</div>
+</div>
+
+<div class="sec" id="s-us">
+  <div class="kick">Us</div>
+  <div class="title">The two of us.</div>
+  <div class="us"><div class="p"><h3>Rebi</h3><div class="m">27 · 165 cm / 5'5"<br>brown hair · curvy</div></div><div class="p"><h3>Ricci</h3><div class="m">35 · 180 cm / 5'11"<br>muscular</div></div></div>
+  <div class="live"><div class="l">Live almost every day · English &amp; German</div><div class="h"><div><span>Vienna</span><span class="t">16:00 – 04:00</span></div><div><span>New York / Toronto</span><span class="t">10 AM – 10 PM</span></div><div><span>Los Angeles / Vancouver</span><span class="t">7 AM – 7 PM</span></div></div></div>
+</div>
+
+<div class="sec" id="s-rules">
+  <div class="kick">Our rules</div>
+  <div class="title">Let's keep it lovely.</div>
+  <div class="rules">
+    <div class="r"><span class="c">&#10003;</span> Tip first, then ask — requests without a tip don't get answered.</div>
+    <div class="r"><span class="c">&#10003;</span> Dirty talk is for tippers, sorry!</div>
+    <div class="r"><span class="c">&#10003;</span> Our prices aren't up for haggling.</div>
+    <div class="r"><span class="c">&#10003;</span> Please don't advertise other models in here.</div>
+    <div class="r"><span class="c">&#10003;</span> No recording, screenshotting or reposting.</div>
+  </div>
+  <div class="dont"><span class="l">We don't do</span><p><b>Cam2cam.</b> But custom videos? Those we adore making. Ask us about anything else — we're more open than this list sounds.</p></div>
+</div>
+
+<div class="sec priv" id="s-privacy">
+  <div class="age">18+ ONLY</div>
+  <div class="lead" style="max-width:80%;margin-left:auto;margin-right:auto">Everything here is ours. Recording, screenshotting or reposting without our okay isn't allowed. This is a live, one-time viewing only.</div>
+  <div class="meta">Protected by <b>bruqi.com</b> · Chaturbate DMCA · &copy; Rebi &amp; Ricci</div>
+</div>
+
+</body>
+</html>
