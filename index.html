@@ -79,6 +79,9 @@ a{color:inherit;text-decoration:none}
 @keyframes grow{to{transform:scaleX(1)}}
 
 .reveal{animation:blurIn linear both;animation-timeline:view();animation-range:entry 2% cover 34%}
+/* elements at the very bottom of the page can't scroll far enough to hit "cover 34%",
+   so they'd stay half-revealed — finish their reveal during entry instead */
+.reveal--early{animation-range:entry 0% entry 96%}
 @keyframes blurIn{from{opacity:0;filter:blur(14px);transform:translateY(26px) scale(.99)}to{opacity:1;filter:blur(0);transform:none}}
 @media(prefers-reduced-motion:reduce){
   .reveal{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
@@ -226,7 +229,7 @@ h2.title{font-family:"Cormorant Garamond",serif;font-weight:600;
 .foot .meta{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.14em;color:var(--ink-faint)}
 .foot .badge{color:var(--gold)}
 .age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.16em;color:var(--rose);border:1px solid rgba(230,206,147,.3);padding:5px 12px;border-radius:var(--pill);margin-bottom:18px}
-.tail{height:56px}
+.tail{height:34vh}
 </style>
 </head>
 <body>
@@ -476,7 +479,7 @@ h2.title{font-family:"Cormorant Garamond",serif;font-weight:600;
 
   <!-- 12 · PRIVACY / FOOTER -->
   <section class="block wrap">
-    <footer class="foot reveal">
+    <footer class="foot reveal reveal--early">
       <span class="age">18+ only</span>
       <div class="copy">Everything on this page is ours. Recording, screenshotting or reposting any of it without our okay isn't allowed. This is a live, one-time viewing only.</div>
       <div class="meta">Protected by <span class="badge">bruqi.com</span> · reported through Chaturbate's DMCA process · © <span id="yr">2026</span> Rebi &amp; Ricci</div>
