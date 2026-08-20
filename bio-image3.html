@@ -3,94 +3,87 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#e6bd5f;--gold2:#c9922f;--ink:#f4efe7;--soft:#a89f93;--faint:#6f6960;--line:rgba(244,239,231,.13);--gline:rgba(230,189,95,.32)}
+:root{--gold:#e6bd5f;--gold2:#c9922f;--ink:#f4efe7;--soft:#b3aa9d;--faint:#7a736a;--line:rgba(244,239,231,.14);--gline:rgba(230,189,95,.34)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
-.sec{background:#000;padding:120px 120px}
-.head{display:flex;align-items:flex-start;gap:28px;margin-bottom:40px}
-.idx{font-family:"Fraunces",serif;font-weight:500;font-size:78px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gline)}
-.htxt{padding-top:6px}
-.label{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
-.hl{font-family:"Fraunces",serif;font-weight:600;font-size:62px;line-height:1.02;letter-spacing:-1px;margin-top:14px}
+body{width:900px;background:#000;color:var(--ink);font-family:"DM Sans",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+.sec{background:#000;padding:110px 90px}
+.head{margin-bottom:44px}
+.idx{font-family:"Fraunces",serif;font-weight:500;font-size:26px;color:var(--gold);letter-spacing:2px}
+.label{font-family:"JetBrains Mono",monospace;font-size:19px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.hl{font-family:"Fraunces",serif;font-weight:600;font-size:82px;line-height:1;letter-spacing:-1.5px;margin-top:20px}
 .hl .g{color:var(--gold);font-style:italic;font-weight:500}
-.body{color:var(--soft);font-size:20px;line-height:1.72;max-width:60ch}
-.body.big{font-family:"Fraunces",serif;font-weight:400;font-size:30px;line-height:1.4;color:var(--ink);max-width:24ch}
+.body{color:var(--soft);font-size:34px;line-height:1.5;max-width:22ch;margin-top:30px}
 
-/* HERO full-bleed */
-#s-hero{position:relative;width:1200px;height:1500px;overflow:hidden;padding:0;background:#000}
-#s-hero .img{position:absolute;inset:0;background:url('assets/bio/hero-src.jpg') center 18%/cover no-repeat;
-  filter:contrast(1.05) saturate(.96) brightness(.96)}
-#s-hero .scrim{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 52%,rgba(0,0,0,.85) 100%)}
-#s-hero .top{position:absolute;top:70px;left:80px;right:80px;display:flex;justify-content:space-between;
-  font-family:"JetBrains Mono",monospace;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
-#s-hero .cap{position:absolute;left:80px;right:80px;bottom:90px}
-#s-hero .cap .big{font-family:"Fraunces",serif;font-weight:600;font-size:118px;line-height:.94;letter-spacing:-2px;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.5)}
-#s-hero .cap .big em{font-style:italic;color:var(--gold);font-weight:500}
-#s-hero .cap .sub{margin-top:18px;font-family:"Fraunces",serif;font-style:italic;font-size:32px;color:var(--ink);opacity:.92}
-
-/* photo grade helper */
-.graded{filter:contrast(1.05) saturate(.94) brightness(.98)}
+/* HERO */
+#s-hero{position:relative;width:900px;height:1150px;overflow:hidden;padding:0;background:#000}
+#s-hero .img{position:absolute;inset:0;background:url('assets/bio/hero-src.jpg') center 20%/cover no-repeat;filter:contrast(1.05) saturate(.96) brightness(.96)}
+#s-hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 24%,rgba(0,0,0,0) 50%,rgba(0,0,0,.86) 100%)}
+#s-hero .name{position:absolute;top:56px;left:64px;font-family:"JetBrains Mono",monospace;font-size:20px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
+#s-hero .cap{position:absolute;left:64px;right:64px;bottom:74px}
+#s-hero .big{font-family:"Fraunces",serif;font-weight:600;font-size:104px;line-height:.92;letter-spacing:-2px;color:#fff;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+#s-hero .big em{font-style:italic;color:var(--gold);font-weight:500}
+#s-hero .sub{margin-top:20px;font-family:"Fraunces",serif;font-style:italic;font-size:38px;color:var(--ink)}
 
 /* rules */
-.rules{margin-top:8px}
-.rules .r{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line)}
-.rules .n{font-family:"JetBrains Mono",monospace;font-size:14px;color:var(--gold)}
-.rules .t{font-size:21px;color:var(--ink)}
-.dont{margin-top:40px;display:flex;gap:26px;align-items:flex-start;max-width:70ch}
-.dont .k{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding-top:6px}
-.dont p{color:var(--soft);font-size:19px}.dont b{color:var(--ink);font-weight:500}
+.rules{margin-top:4px}
+.rules .r{display:flex;gap:22px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.rules .n{font-family:"JetBrains Mono",monospace;font-size:20px;color:var(--gold)}
+.rules .t{font-size:31px;color:var(--ink);line-height:1.35}
+.dont{margin-top:44px}
+.dont .k{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+.dont p{color:var(--soft);font-size:30px;line-height:1.45}.dont b{color:var(--ink);font-weight:500}
 
-/* tip / menu */
-.menu{margin-top:6px;display:flex;align-items:center;gap:34px;padding:34px 44px;border-radius:20px;
-  background:linear-gradient(100deg,rgba(230,189,95,.10),rgba(230,189,95,.02));border:1px solid var(--gline)}
-.menu .cmd{font-family:"JetBrains Mono",monospace;font-size:52px;color:var(--gold)}
-.menu p{color:var(--soft);font-size:19px;max-width:30ch}
-.podium{margin-top:56px;display:grid;grid-template-columns:1fr;gap:0;max-width:680px}
-.podium .r{display:flex;align-items:center;gap:30px;padding:26px 0;border-bottom:1px solid var(--line)}
-.podium .rk{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:44px;color:var(--gold);min-width:70px}
-.podium .nm{font-size:30px;color:var(--ink)}
-.podium .king{margin-top:26px;display:flex;align-items:center;gap:22px;padding:28px 32px;border-radius:16px;border:1px solid var(--gline);background:rgba(230,189,95,.05)}
-.podium .king .c{font-size:32px}
-.podium .king .l{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}
-.podium .king .v{font-family:"Fraunces",serif;font-style:italic;font-size:30px}
+/* tip */
+.menu{margin-top:8px;display:flex;align-items:center;gap:34px;padding:40px 46px;border-radius:22px;background:linear-gradient(100deg,rgba(230,189,95,.11),rgba(230,189,95,.02));border:1px solid var(--gline)}
+.menu .cmd{font-family:"JetBrains Mono",monospace;font-size:66px;color:var(--gold)}
+.menu p{color:var(--soft);font-size:28px;line-height:1.4;max-width:14ch}
+.podium{margin-top:56px}
+.podium .label{margin-bottom:18px}
+.podium .r{display:flex;align-items:center;gap:32px;padding:28px 0;border-bottom:1px solid var(--line)}
+.podium .rk{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:52px;color:var(--gold);min-width:96px}
+.podium .nm{font-size:42px;color:var(--ink)}
+.podium .king{margin-top:30px;display:flex;align-items:center;gap:26px;padding:34px 38px;border-radius:18px;border:1px solid var(--gline);background:rgba(230,189,95,.05)}
+.podium .king .c{font-size:42px}
+.podium .king .l{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+.podium .king .v{font-family:"Fraunces",serif;font-style:italic;font-size:40px}
 
 /* schedule */
-.sched{margin-top:10px;max-width:760px}
-.sched .r{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
-.sched .z{font-family:"Fraunces",serif;font-size:30px;color:var(--ink)}
-.sched .t{font-family:"JetBrains Mono",monospace;font-size:22px;color:var(--gold)}
-.sched .foot{margin-top:30px;font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+.sched{margin-top:6px}
+.sched .r{display:flex;justify-content:space-between;align-items:baseline;padding:32px 0;border-bottom:1px solid var(--line)}
+.sched .z{font-family:"Fraunces",serif;font-size:44px;color:var(--ink)}
+.sched .t{font-family:"JetBrains Mono",monospace;font-size:30px;color:var(--gold)}
+.sched .foot{margin-top:34px;font-family:"JetBrains Mono",monospace;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
 
 /* fansly cards */
-.card{position:relative;width:960px;margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid var(--gline);background:#0a0806}
-.card .ph{width:100%;height:640px;object-fit:cover;display:block;filter:contrast(1.04) saturate(.95) brightness(.9)}
-.card .grad{position:absolute;left:0;right:0;top:0;height:640px;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(10,8,6,.75) 78%,#0a0806 100%)}
-.card .body{position:relative;padding:0 46px 46px;margin-top:-120px}
-.card .plat{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.card .handle{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:60px;color:#fff;line-height:1;margin-top:8px}
-.card .d{color:var(--soft);font-size:19px;margin-top:16px;max-width:52ch}
-.chips{display:flex;gap:12px;margin-top:22px}
-.chip{font-family:"JetBrains Mono",monospace;font-size:15px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
+.card{position:relative;width:760px;margin:0 auto;border-radius:26px;overflow:hidden;border:1px solid var(--gline);background:#0a0806}
+.card .ph{width:100%;height:620px;object-fit:cover;display:block;filter:contrast(1.04) saturate(.95) brightness(.92)}
+.card .grad{position:absolute;left:0;right:0;top:0;height:620px;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(10,8,6,.72) 76%,#0a0806 100%)}
+.card .body{position:relative;padding:0 50px 50px;margin-top:-150px;max-width:none}
+.card .plat{font-family:"JetBrains Mono",monospace;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.card .handle{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:74px;color:#fff;line-height:1;margin-top:12px}
+.card .d{color:var(--soft);font-size:29px;line-height:1.4;margin-top:20px;max-width:26ch}
+.chips{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.chip{font-family:"JetBrains Mono",monospace;font-size:21px;padding:12px 20px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
 .chip b{color:var(--ink);font-weight:500}
-.chip.promo{border-color:var(--gline);color:var(--gold);background:rgba(230,189,95,.08)}.chip.promo b{color:var(--gold)}
-.cta{position:relative;overflow:hidden;display:inline-block;margin-top:30px;font-family:"JetBrains Mono",monospace;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:#000;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:999px;padding:18px 44px}
+.chip.promo{border-color:var(--gline);color:var(--gold);background:rgba(230,189,95,.09)}.chip.promo b{color:var(--gold)}
+.cta{position:relative;overflow:hidden;display:inline-block;margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:#000;background:linear-gradient(90deg,var(--gold2),var(--gold));border-radius:999px;padding:22px 52px}
 .cta .sheen{position:absolute;top:0;bottom:0;width:60%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);animation:sweep 2.6s ease-in-out infinite}
 @keyframes sweep{0%{left:-60%}55%,100%{left:130%}}
 
 /* dmca */
 #s-dmca{text-align:center;padding-top:100px;padding-bottom:110px}
-.age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:3px;color:var(--gold);border:1px solid var(--gline);border-radius:999px;padding:9px 20px;margin-bottom:30px}
-.meta{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:1px;color:var(--faint);margin-top:22px}
+.rule{height:1px;background:var(--gline);width:80px;margin:0 auto 44px}
+.age{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:19px;letter-spacing:3px;color:var(--gold);border:1px solid var(--gline);border-radius:999px;padding:12px 24px;margin-bottom:34px}
+.dmbody{color:var(--soft);font-size:30px;line-height:1.5;max-width:26ch;margin:0 auto}
+.meta{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:1px;color:var(--faint);margin-top:28px}
 .meta b{color:var(--gold);font-weight:400}
-.rule{height:1px;background:var(--gline);width:70px;margin:0 auto 40px}
 </style></head>
 <body>
 
 <!-- HERO -->
 <div id="s-hero">
   <div class="img"></div><div class="scrim"></div>
-  <div class="top"><span>Rebi &amp; Ricci</span><span>Live from Vienna</span></div>
+  <div class="name">Rebi &amp; Ricci</div>
   <div class="cap">
     <div class="big">come play<br><em>with us</em></div>
     <div class="sub">a switch couple — you decide who's in charge.</div>
@@ -99,30 +92,29 @@ body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-se
 
 <!-- 01 ABOUT -->
 <div class="sec" id="s-about">
-  <div class="head"><div class="idx">01</div><div class="htxt"><div class="label">Who we are</div><div class="hl">Two years in,<br>still <span class="g">obsessed.</span></div></div></div>
-  <div class="body">We're Rebi and Ricci — a switch couple, which is a fancy way of saying sometimes she's the boss, sometimes he is. And in here? That part is up to you. Come say hi first. We're friendly, we promise, and we love knowing who we're playing with.</div>
+  <div class="head"><div class="idx">01</div><div class="label">Us</div><div class="hl">Two years in,<br>still <span class="g">obsessed.</span></div></div>
+  <div class="body">Sometimes she's the boss, sometimes he is. In here? That's up to you.</div>
 </div>
 
 <!-- 02 RULES -->
 <div class="sec" id="s-rules">
-  <div class="head"><div class="idx">02</div><div class="htxt"><div class="label">House rules</div><div class="hl">Be sweet,<br>tip <span class="g">first.</span></div></div></div>
+  <div class="head"><div class="idx">02</div><div class="label">House rules</div><div class="hl">Be sweet,<br>tip <span class="g">first.</span></div></div>
   <div class="rules">
-    <div class="r"><span class="n">01</span><span class="t">Tip first, then ask — requests without a tip don't get answered.</span></div>
-    <div class="r"><span class="n">02</span><span class="t">Dirty talk is for tippers, sorry!</span></div>
-    <div class="r"><span class="n">03</span><span class="t">Our prices aren't up for haggling.</span></div>
-    <div class="r"><span class="n">04</span><span class="t">Please don't advertise other models in here.</span></div>
-    <div class="r"><span class="n">05</span><span class="t">No recording, screenshotting or reposting.</span></div>
+    <div class="r"><span class="n">01</span><span class="t">Tip first, then ask.</span></div>
+    <div class="r"><span class="n">02</span><span class="t">Dirty talk is for tippers.</span></div>
+    <div class="r"><span class="n">03</span><span class="t">Prices aren't up for haggling.</span></div>
+    <div class="r"><span class="n">04</span><span class="t">Don't advertise other models here.</span></div>
+    <div class="r"><span class="n">05</span><span class="t">No recording or reposting.</span></div>
   </div>
-  <div class="dont"><span class="k">We don't do</span><p><b>Cam2cam.</b> But custom videos? Those we adore making. Ask us about anything else — we're a lot more open than this little list makes us sound.</p></div>
+  <div class="dont"><span class="k">We don't do</span><p><b>Cam2cam.</b> But custom videos? Those we adore making.</p></div>
 </div>
 
 <!-- 03 TIP MENU -->
 <div class="sec" id="s-tip">
-  <div class="head"><div class="idx">03</div><div class="htxt"><div class="label">Tipping</div><div class="hl">Tip with a<br>little <span class="g">note.</span></div></div></div>
-  <div class="body" style="margin-bottom:44px">Tell us what you'd love to see — we read every single one, even the tiny tips.</div>
-  <div class="menu"><span class="cmd">/menu</span><p>Type it in the chat to see the whole menu.</p></div>
+  <div class="head"><div class="idx">03</div><div class="label">Tipping</div><div class="hl">Tip with<br>a <span class="g">note.</span></div></div>
+  <div class="menu"><span class="cmd">/menu</span><p>Type it in chat for the full menu.</p></div>
   <div class="podium">
-    <div class="label" style="margin-top:56px;margin-bottom:8px">&#128081; Top 3 guests · new king every hour</div>
+    <div class="label">&#128081; Top 3 guests · new king every hour</div>
     <div class="r"><span class="rk">1st</span><span class="nm">[name]</span></div>
     <div class="r"><span class="rk">2nd</span><span class="nm">[name]</span></div>
     <div class="r"><span class="rk">3rd</span><span class="nm">[name]</span></div>
@@ -132,18 +124,18 @@ body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-se
 
 <!-- 04 SCHEDULE -->
 <div class="sec" id="s-sched">
-  <div class="head"><div class="idx">04</div><div class="htxt"><div class="label">Schedule</div><div class="hl">Live almost<br><span class="g">every day.</span></div></div></div>
+  <div class="head"><div class="idx">04</div><div class="label">Schedule</div><div class="hl">Live almost<br><span class="g">every day.</span></div></div>
   <div class="sched">
     <div class="r"><span class="z">Vienna</span><span class="t">16:00 – 04:00</span></div>
-    <div class="r"><span class="z">New York / Toronto</span><span class="t">10 AM – 10 PM</span></div>
-    <div class="r"><span class="z">Los Angeles / Vancouver</span><span class="t">7 AM – 7 PM</span></div>
-    <div class="foot">We speak English &amp; German</div>
+    <div class="r"><span class="z">New York</span><span class="t">10 AM – 10 PM</span></div>
+    <div class="r"><span class="z">Los Angeles</span><span class="t">7 AM – 7 PM</span></div>
+    <div class="foot">English &amp; German</div>
   </div>
 </div>
 
 <!-- 05 FANSLY -->
 <div class="sec" id="s-fanslyhead" style="padding-bottom:50px">
-  <div class="head"><div class="idx">05</div><div class="htxt"><div class="label">Fansly</div><div class="hl">Where the rest<br>of us <span class="g">lives.</span></div></div></div>
+  <div class="head" style="margin-bottom:0"><div class="idx">05</div><div class="label">Fansly</div><div class="hl">The rest<br>of <span class="g">us.</span></div></div>
 </div>
 
 <div class="sec" id="s-couple" style="padding-top:0;padding-bottom:40px">
@@ -152,8 +144,8 @@ body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-se
     <div class="body">
       <div class="plat">&#9670; Fansly · The two of us</div>
       <div class="handle">dreamcouple69</div>
-      <div class="d">Uncut. Full scenes, stream recordings, and the nights we stay in and don't go live at all.</div>
-      <div class="chips"><span class="chip promo"><b>Softcore</b> $4.99 first month</span><span class="chip"><b>Hardcore</b> $12.99 til Aug</span></div>
+      <div class="d">Uncut. Full scenes and the nights we stay in.</div>
+      <div class="chips"><span class="chip promo"><b>Softcore</b> $4.99</span><span class="chip"><b>Hardcore</b> $12.99</span></div>
       <div class="cta">Open Fansly &#8599;<span class="sheen"></span></div>
     </div>
   </div>
@@ -165,7 +157,7 @@ body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-se
     <div class="body">
       <div class="plat">&#9670; Fansly · Just Rebi</div>
       <div class="handle">badbunnyyy77</div>
-      <div class="d">Her soft, feminine side… and the other side that likes being in charge. All to yourself.</div>
+      <div class="d">Soft, feminine — and the side that likes being in charge.</div>
       <div class="chips"><span class="chip"><b>Softcore</b> $5</span><span class="chip"><b>Hardcore</b> $20</span></div>
       <div class="cta">Open Fansly &#8599;<span class="sheen"></span></div>
     </div>
@@ -176,8 +168,8 @@ body{width:1200px;background:#000;color:var(--ink);font-family:"DM Sans",sans-se
 <div class="sec" id="s-dmca">
   <div class="rule"></div>
   <div class="age">18+ ONLY</div>
-  <div class="body" style="margin:0 auto;text-align:center;max-width:52ch;color:var(--soft)">Everything here is ours. Recording, screenshotting or reposting without our okay isn't allowed. This is a live, one-time viewing only.</div>
-  <div class="meta">Protected by <b>bruqi.com</b> &nbsp;·&nbsp; Chaturbate DMCA &nbsp;·&nbsp; &copy; Rebi &amp; Ricci</div>
+  <div class="dmbody">Everything here is ours. No recording, screenshotting or reposting.</div>
+  <div class="meta">Protected by <b>bruqi.com</b> &nbsp;·&nbsp; Chaturbate DMCA</div>
 </div>
 
 </body></html>
