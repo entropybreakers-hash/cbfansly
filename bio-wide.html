@@ -5,12 +5,12 @@
 <style>
   :root{--panel:#0B0B0C;--cta:#08080A;--line:#232326;--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:#000;font-family:'Archivo',system-ui,sans-serif;color:var(--warm);-webkit-font-smoothing:antialiased;}
-  .bar{width:1600px;display:flex;background:var(--panel);overflow:hidden;border-bottom:1px solid var(--line);}
+  body{background:transparent;font-family:'Archivo',system-ui,sans-serif;color:var(--warm);-webkit-font-smoothing:antialiased;}
+  .bar{width:1600px;display:flex;background:transparent;overflow:hidden;border-bottom:1px solid var(--line);}
   .txt{flex:0 0 62%;padding:70px 70px 70px 300px;display:flex;flex-direction:column;justify-content:center;}
   .tap{margin-top:30px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;letter-spacing:.08em;text-transform:uppercase;padding:14px 26px;border-radius:6px;}
   .phwrap{flex:1;position:relative;}
-  .phwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .phwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.4) 26%,#000 52%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.4) 26%,#000 52%);}
   .fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 0%,rgba(11,11,12,.55) 22%,rgba(11,11,12,0) 55%);}
   .bcon{font-family:'Barlow Condensed',sans-serif;}
   .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:24px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
@@ -28,17 +28,17 @@
   .loves li::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--hot);transform:translateY(-6px);}
   .note{margin-top:26px;padding:22px 28px;border-left:3px solid var(--hot);background:rgba(255,46,126,.06);font-size:26px;line-height:1.5;color:#d8d4dc;}
   /* buttons row (full-width bars, each clickable) */
-  .btnrow{width:1600px;background:var(--cta);padding:16px 80px;}
+  .btnrow{width:1600px;background:transparent;padding:16px 80px;}
   .btnrow.first{padding-top:44px;}
   .btnrow.last{padding-bottom:52px;}
-  .cta-h{width:1600px;background:var(--cta);padding:56px 80px 20px;}
+  .cta-h{width:1600px;background:transparent;padding:56px 80px 20px;}
   .cta-h h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:56px;line-height:1.02;text-transform:uppercase;max-width:26ch;}
   .cta-h h2 em{font-style:normal;color:var(--hot);}
   .btn{display:flex;align-items:center;justify-content:space-between;padding:30px 44px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:34px;letter-spacing:.1em;text-transform:uppercase;}
   .btn.fill{background:var(--hot);color:#0B0B0C;}
   .btn.out{background:transparent;border:2px solid var(--hot);color:var(--hot);}
   .btn .sm{font-size:24px;letter-spacing:.08em;opacity:.9;}
-  .dmca{width:1600px;background:#050506;padding:34px 80px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:#6b6670;}
+  .dmca{width:1600px;background:transparent;padding:34px 80px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:#6b6670;}
   .dmca b{color:var(--hot);font-weight:600;}
 </style></head>
 <body>
@@ -51,7 +51,7 @@
     <div class="sub">We're here to have fun with you.</div>
     <div class="tap">Click here to open our Fansly</div>
   </div>
-  <div class="phwrap"><img src="assets/bio/couple-src.jpg"><div class="fade"></div></div>
+  <div class="phwrap"><img src="assets/bio/couple-src.jpg"></div>
 </div>
 
 <!-- RULES -->
@@ -66,7 +66,7 @@
       <li class="final"><strong>Don't</strong> send dick pics. You'll be blocked.</li>
     </ul>
   </div>
-  <div class="phwrap"><img src="assets/bio/hero-src.jpg" style="object-position:center 25%"><div class="fade"></div></div>
+  <div class="phwrap"><img src="assets/bio/hero-src.jpg" style="object-position:center 25%"></div>
 </div>
 
 <!-- LOVES -->
@@ -82,7 +82,7 @@
     <div class="note">And we're generous — if you tip for something, we do it properly.</div>
     <div class="tap">Click here for Rebi's Fansly</div>
   </div>
-  <div class="phwrap"><img src="assets/bio/solo-src.jpg" style="object-position:center 28%"><div class="fade"></div></div>
+  <div class="phwrap"><img src="assets/bio/solo-src.jpg" style="object-position:center 28%"></div>
 </div>
 
 <!-- CTA heading -->
