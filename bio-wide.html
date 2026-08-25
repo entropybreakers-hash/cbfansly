@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--panel:#0B0B0C;--cta:#08080A;--line:#232326;--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#000;font-family:'Archivo',system-ui,sans-serif;color:var(--warm);-webkit-font-smoothing:antialiased;}
+  .bar{width:1600px;display:flex;background:var(--panel);overflow:hidden;border-bottom:1px solid var(--line);}
+  .txt{flex:0 0 56%;padding:76px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .phwrap{flex:1;position:relative;}
+  .phwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 0%,rgba(11,11,12,.55) 22%,rgba(11,11,12,0) 55%);}
+  .bcon{font-family:'Barlow Condensed',sans-serif;}
+  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:24px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:104px;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;}
+  .sub{margin-top:24px;font-size:27px;line-height:1.5;color:var(--mute);max-width:30ch;}
+  .label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);margin-bottom:26px;}
+  .rules{list-style:none;}
+  .rules li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:30px;line-height:1.3;color:#c9c5cd;}
+  .rules li.final{border-bottom:none;}
+  .rules li::before{content:"";flex:none;width:18px;height:2px;background:var(--hot);transform:translateY(-8px);}
+  .rules li strong{color:var(--warm);font-weight:600;}
+  .but{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:104px;line-height:1;text-transform:uppercase;color:var(--hot);margin-bottom:10px;}
+  .loves{list-style:none;}
+  .loves li{display:flex;gap:18px;align-items:baseline;padding:15px 0;font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:38px;line-height:1.2;color:var(--warm);}
+  .loves li::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--hot);transform:translateY(-6px);}
+  .note{margin-top:26px;padding:22px 28px;border-left:3px solid var(--hot);background:rgba(255,46,126,.06);font-size:26px;line-height:1.5;color:#d8d4dc;}
+  /* buttons row (full-width bars, each clickable) */
+  .btnrow{width:1600px;background:var(--cta);padding:16px 80px;}
+  .btnrow.first{padding-top:44px;}
+  .btnrow.last{padding-bottom:52px;}
+  .cta-h{width:1600px;background:var(--cta);padding:56px 80px 20px;}
+  .cta-h h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:56px;line-height:1.02;text-transform:uppercase;max-width:26ch;}
+  .cta-h h2 em{font-style:normal;color:var(--hot);}
+  .btn{display:flex;align-items:center;justify-content:space-between;padding:30px 44px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:34px;letter-spacing:.1em;text-transform:uppercase;}
+  .btn.fill{background:var(--hot);color:#0B0B0C;}
+  .btn.out{background:transparent;border:2px solid var(--hot);color:var(--hot);}
+  .btn .sm{font-size:24px;letter-spacing:.08em;opacity:.9;}
+  .dmca{width:1600px;background:#050506;padding:34px 80px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:#6b6670;}
+  .dmca b{color:var(--hot);font-weight:600;}
+</style></head>
+<body>
+
+<!-- HERO -->
+<div class="bar" id="b-hero">
+  <div class="txt">
+    <div class="eyebrow">Rebi &amp; Ricci</div>
+    <h1>We're a fit<br>gym couple</h1>
+    <div class="sub">We're here to have fun with you.</div>
+  </div>
+  <div class="phwrap"><img src="assets/bio/couple-src.jpg"><div class="fade"></div></div>
+</div>
+
+<!-- RULES -->
+<div class="bar" id="b-rules">
+  <div class="txt">
+    <div class="label">House rules</div>
+    <ul class="rules">
+      <li>We <strong>don't</strong> do anything unless it's tipped for first.</li>
+      <li>We <strong>don't</strong> negotiate prices.</li>
+      <li>We <strong>don't</strong> do C2C.</li>
+      <li>We <strong>don't</strong> chat during the stream.</li>
+      <li class="final"><strong>Don't</strong> send dick pics. You'll be blocked.</li>
+    </ul>
+  </div>
+  <div class="phwrap"><img src="assets/bio/hero-src.jpg" style="object-position:center 25%"><div class="fade"></div></div>
+</div>
+
+<!-- LOVES -->
+<div class="bar" id="b-loves">
+  <div class="txt">
+    <div class="but">But</div>
+    <ul class="loves">
+      <li>We love making you feel welcome.</li>
+      <li>We love trying out your fantasies.</li>
+      <li>We love fucking hard in front of you.</li>
+      <li>We love private shows when appreciated.</li>
+    </ul>
+    <div class="note">And we're generous — if you tip for something, we do it properly.</div>
+  </div>
+  <div class="phwrap"><img src="assets/bio/solo-src.jpg" style="object-position:center 28%"><div class="fade"></div></div>
+</div>
+
+<!-- CTA heading -->
+<div class="cta-h"><h2>Want 24/7 access to our bodies and our <em>chemistry?</em></h2></div>
+<div class="btnrow first" id="b-couple"><div class="btn fill"><span>Subscribe — The two of us</span><span class="sm">dreamcouple69 &#8599;</span></div></div>
+<div class="btnrow last" id="b-solo"><div class="btn out"><span>Subscribe — Just Rebi</span><span class="sm">badbunnyyy77 &#8599;</span></div></div>
+
+<div class="dmca" id="b-dmca">18+ only · No recording or reposting · Protected by <b>bruqi.com</b> · Chaturbate DMCA</div>
+
+</body></html>
