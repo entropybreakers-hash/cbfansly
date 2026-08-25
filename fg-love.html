@@ -3,21 +3,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--panel:#0B0B0C;--line:#232326;--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;}
+  :root{--warm:#F2EFEA;--mute:#9a94a0;--hot:#FF2E7E;--line:rgba(242,239,231,.12);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:980px;display:flex;background:var(--panel);overflow:hidden;font-family:'Archivo',sans-serif;color:var(--warm);}
-  .txt{flex:0 0 54%;padding:88px 70px 88px 300px;display:flex;flex-direction:column;justify-content:center;}
-  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:26px;letter-spacing:.36em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
-  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:96px;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;}
-  .loves{list-style:none;margin-top:34px;}
-  .loves li{display:flex;gap:18px;align-items:baseline;padding:13px 0;font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:36px;line-height:1.2;color:#d8d4dc;}
-  .loves li::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--hot);transform:translateY(-6px);}
-  .handle{margin-top:38px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:34px;letter-spacing:.02em;color:var(--warm);}
-  .handle span{color:var(--mute);font-weight:600;font-size:24px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:4px;}
-  .tap{margin-top:26px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:.08em;text-transform:uppercase;padding:16px 30px;border-radius:8px;}
-  .phwrap{flex:1;position:relative;}
-  .phwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.4) 24%,#000 52%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.4) 24%,#000 52%);}
+  /* block 2 — a touch lighter panel than the black hero */
+  .bar{width:1920px;height:980px;display:flex;align-items:stretch;
+    background:linear-gradient(135deg,#1b1922 0%,#141218 58%,#101015 100%);
+    font-family:'Archivo',sans-serif;color:var(--warm);}
+  .txt{flex:0 0 52%;padding:96px 80px 96px 300px;display:flex;flex-direction:column;justify-content:center;}
+  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);margin-bottom:26px;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:82px;line-height:.96;letter-spacing:0;text-transform:uppercase;}
+  .loves{list-style:none;margin-top:36px;display:flex;flex-direction:column;gap:6px;}
+  .loves li{display:flex;gap:16px;align-items:baseline;padding:10px 0;font-family:'Archivo',sans-serif;font-weight:400;font-size:29px;line-height:1.35;color:#cfcad4;}
+  .loves li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--hot);transform:translateY(-6px);}
+  .rule{margin:40px 0 30px;height:1px;background:var(--line);max-width:520px;}
+  .handle{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:36px;letter-spacing:.02em;color:var(--warm);}
+  .handle span{color:var(--mute);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .tap{margin-top:28px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;letter-spacing:.12em;text-transform:uppercase;padding:16px 34px;border-radius:999px;}
+  /* contained photo card, floating on the panel */
+  .media{flex:1;padding:70px 80px 70px 40px;display:flex;}
+  .card{flex:1;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(242,239,231,.12);box-shadow:0 40px 90px rgba(0,0,0,.55);}
+  .card .ph{position:absolute;inset:0;background:url('assets/bio/hero-src.jpg') center 20%/cover no-repeat;}
 </style></head>
 <body>
 <div class="bar">
@@ -29,9 +34,10 @@
       <li>We love trying out your fantasies.</li>
       <li>We love fucking hard in front of you.</li>
     </ul>
+    <div class="rule"></div>
     <div class="handle"><span>Our Fansly — the two of us</span>dreamcouple69</div>
     <div class="tap">Click here to open our Fansly</div>
   </div>
-  <div class="phwrap"><img src="assets/bio/hero-src.jpg"></div>
+  <div class="media"><div class="card"><div class="ph"></div></div></div>
 </div>
 </body></html>

@@ -3,28 +3,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--panel:#0B0B0C;--line:#232326;--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;}
+  :root{--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(242,239,231,.12);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:980px;display:flex;background:var(--panel);overflow:hidden;font-family:'Archivo',sans-serif;color:var(--warm);}
-  .phwrap{flex:0 0 42%;position:relative;}
-  .phwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;
-    -webkit-mask-image:linear-gradient(270deg,transparent 0%,rgba(0,0,0,.4) 22%,#000 50%);mask-image:linear-gradient(270deg,transparent 0%,rgba(0,0,0,.4) 22%,#000 50%);}
-  .txt{flex:1;padding:82px 300px 82px 70px;display:flex;flex-direction:column;justify-content:center;}
-  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:26px;letter-spacing:.36em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
-  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:92px;line-height:.94;letter-spacing:-.01em;text-transform:uppercase;}
-  .handle{margin-top:26px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:34px;letter-spacing:.02em;color:var(--warm);}
-  .handle span{color:var(--mute);font-weight:600;font-size:23px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:4px;}
-  .tap{margin-top:22px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:.08em;text-transform:uppercase;padding:16px 30px;border-radius:8px;}
-  .sched{margin-top:44px;border-top:1px solid var(--line);padding-top:30px;}
-  .sched .lab{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:24px;letter-spacing:.28em;text-transform:uppercase;color:var(--hot);margin-bottom:20px;}
-  .sched .row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);}
+  /* block 3 — stays on black */
+  .bar{width:1920px;height:980px;display:flex;align-items:stretch;background:#0B0B0C;font-family:'Archivo',sans-serif;color:var(--warm);}
+  .media{flex:0 0 40%;padding:70px 40px 70px 120px;display:flex;}
+  .card{flex:1;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(242,239,231,.12);box-shadow:0 40px 90px rgba(0,0,0,.6);}
+  .card .ph{position:absolute;inset:0;background:url('assets/bio/solo-src.jpg') center 18%/cover no-repeat;}
+  .txt{flex:1;padding:92px 300px 92px 76px;display:flex;flex-direction:column;justify-content:center;}
+  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);margin-bottom:26px;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:80px;line-height:.96;text-transform:uppercase;}
+  .handle{margin-top:26px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:36px;letter-spacing:.02em;color:var(--warm);}
+  .handle span{color:var(--mute);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .tap{margin-top:24px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;letter-spacing:.12em;text-transform:uppercase;padding:16px 34px;border-radius:999px;}
+  .sched{margin-top:46px;border-top:1px solid var(--line);padding-top:30px;max-width:560px;}
+  .sched .lab{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:23px;letter-spacing:.32em;text-transform:uppercase;color:var(--hot);margin-bottom:18px;}
+  .sched .row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);}
   .sched .row:last-child{border-bottom:none;}
-  .sched .z{font-family:'Archivo',sans-serif;font-size:25px;color:var(--mute);}
-  .sched .t{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:32px;letter-spacing:.04em;color:var(--warm);}
+  .sched .z{font-family:'Archivo',sans-serif;font-size:24px;color:var(--mute);}
+  .sched .t{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:31px;letter-spacing:.04em;color:var(--warm);}
 </style></head>
 <body>
 <div class="bar">
-  <div class="phwrap"><img src="assets/bio/solo-src.jpg"></div>
+  <div class="media"><div class="card"><div class="ph"></div></div></div>
   <div class="txt">
     <div class="eyebrow">Just Rebi</div>
     <h1>Solo on<br>Fansly</h1>
