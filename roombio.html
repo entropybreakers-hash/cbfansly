@@ -3,36 +3,42 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#000;--panel:#0B0B0C;--line:#232326;--warm:#F2EFEA;--mute:#7A7580;--hot:#FF2E7E;}
+  :root{--ink:#000;--panel:#0B0B0C;--cta:#08080A;--line:#232326;--warm:#F2EFEA;--mute:#7A7580;--hot:#FF2E7E;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:#000;font-family:'Archivo',system-ui,sans-serif;color:var(--warm);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased;}
-  .card{width:820px;background:var(--panel);border:1px solid var(--line);}
-  .head{padding:48px 48px 40px;border-bottom:1px solid var(--line);}
+  body{background:#000;font-family:'Archivo',system-ui,sans-serif;color:var(--warm);-webkit-font-smoothing:antialiased;}
+  .w{width:820px;}
+  .bcon{font-family:'Barlow Condensed',sans-serif;}
+  .head{background:var(--panel);padding:48px 48px 40px;border-bottom:1px solid var(--line);}
   .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:18px;}
   .head h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:62px;line-height:.98;letter-spacing:-.01em;text-transform:uppercase;}
   .head p{margin-top:16px;font-size:16px;line-height:1.55;color:var(--mute);max-width:44ch;}
-  .rules{padding:38px 48px 40px;}
+  .rules{background:var(--panel);padding:38px 48px 40px;}
   .label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-bottom:22px;}
   .rules ul{list-style:none;}
   .rules li{display:flex;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.45;color:#B9B4BC;}
   .rules li.final{border-bottom:none;}
   .rules li::before{content:"";flex:none;width:16px;height:1px;background:var(--mute);transform:translateY(-5px);}
   .rules li strong{color:var(--warm);font-weight:600;}
-  .hinge{display:flex;align-items:center;gap:22px;padding:0 48px;}
+  .hinge{background:var(--panel);display:flex;align-items:center;gap:22px;padding:0 48px;}
   .hinge span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:74px;line-height:1;text-transform:uppercase;color:var(--hot);letter-spacing:.02em;}
   .hinge i{flex:1;height:1px;background:var(--hot);opacity:.45;}
-  .loves{padding:34px 48px 44px;}
+  .loves{background:var(--panel);padding:34px 48px 44px;}
   .loves ul{list-style:none;}
   .loves li{display:flex;align-items:baseline;gap:16px;padding:13px 0;font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:27px;line-height:1.28;color:var(--warm);}
   .loves li::before{content:"";flex:none;width:8px;height:8px;background:var(--hot);border-radius:50%;transform:translateY(-4px);}
   .note{margin-top:26px;padding:20px 24px;border-left:2px solid var(--hot);background:rgba(255,46,126,.05);font-size:16.5px;line-height:1.55;}
-  .cta{padding:40px 48px 46px;border-top:1px solid var(--line);background:#08080A;}
-  .cta h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;line-height:1.05;text-transform:uppercase;max-width:22ch;}
-  .cta h2 em{font-style:normal;color:var(--hot);}
-  .cta .go{display:inline-block;margin-top:22px;padding:14px 30px;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;}
+  .ctah{background:var(--cta);padding:44px 48px 30px;border-top:1px solid var(--line);}
+  .ctah h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;line-height:1.05;text-transform:uppercase;max-width:22ch;}
+  .ctah h2 em{font-style:normal;color:var(--hot);}
+  .btnrow{background:var(--cta);padding:8px 48px;}
+  .btnrow.last{padding-bottom:46px;}
+  .btn{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;}
+  .btn.fill{background:var(--hot);color:#0B0B0C;}
+  .btn.out{background:transparent;border:1px solid var(--hot);color:var(--hot);}
+  .btn .sm{font-size:14px;letter-spacing:.12em;opacity:.85;}
 </style></head>
 <body>
-  <div class="card">
+  <div class="w" id="blk-main">
     <header class="head">
       <div class="eyebrow">Rebi &amp; Ricci</div>
       <h1>We're a fit<br>gym couple</h1>
@@ -58,9 +64,13 @@
       </ul>
       <div class="note">And we're generous — if you tip for something, we do it properly.</div>
     </section>
-    <section class="cta">
-      <h2>Want 24/7 access to our bodies and our <em>chemistry?</em></h2>
-      <a class="go" href="#">Subscribe on Fansly</a>
-    </section>
+    <div class="ctah"><h2>Want 24/7 access to our bodies and our <em>chemistry?</em></h2></div>
+  </div>
+
+  <div class="w btnrow" id="btn-couple">
+    <div class="btn fill"><span>Subscribe — The two of us</span><span class="sm">dreamcouple69 &#8599;</span></div>
+  </div>
+  <div class="w btnrow last" id="btn-solo">
+    <div class="btn out"><span>Subscribe — Just Rebi</span><span class="sm">badbunnyyy77 &#8599;</span></div>
   </div>
 </body></html>
