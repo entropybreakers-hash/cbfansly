@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(242,239,231,.1);}
+  :root{--warm:#F4F1EC;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(244,241,236,.1);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  /* House rules — clean statement panel, stays on black */
-  .bar{width:1920px;height:820px;background:#0B0B0C;font-family:'Archivo',sans-serif;color:var(--warm);
-    display:flex;flex-direction:column;justify-content:center;padding:0 300px 0 300px;position:relative;}
-  .top{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);}
-  .head{display:flex;align-items:baseline;gap:26px;margin-bottom:44px;}
-  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);}
-  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:76px;line-height:.94;text-transform:uppercase;}
-  .rules{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 90px;max-width:1180px;}
-  .rules li{display:flex;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);font-size:29px;line-height:1.32;color:#cfcad4;}
-  .rules li::before{content:"";flex:none;width:18px;height:2px;background:var(--hot);transform:translateY(-9px);}
-  .rules li strong{color:var(--warm);font-weight:600;}
-  .rules li.wide{grid-column:1 / -1;}
+  .bar{width:1920px;height:900px;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);
+    display:flex;flex-direction:column;justify-content:center;padding:0 300px;}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:22px;letter-spacing:.32em;text-transform:uppercase;color:var(--hot);margin-bottom:26px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:88px;line-height:1;letter-spacing:-.02em;margin-bottom:66px;}
+  .rules{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 120px;max-width:1260px;}
+  .rules li{display:flex;gap:22px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);font-size:31px;font-weight:300;line-height:1.3;color:#d7d3da;}
+  .rules li b{font-weight:600;color:var(--warm);}
+  .rules li .n{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;color:var(--hot);min-width:30px;}
+  .close{margin-top:56px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:30px;letter-spacing:-.01em;color:var(--warm);}
+  .close b{color:var(--hot);font-weight:600;}
 </style></head>
 <body>
 <div class="bar">
-  <div class="top"></div>
-  <div class="head">
-    <div class="eyebrow">Before we play</div>
-    <h1>House rules</h1>
-  </div>
+  <div class="eyebrow">First things first</div>
+  <h1>House rules</h1>
   <ul class="rules">
-    <li>We <strong>don't</strong> do anything unless it's tipped for first.</li>
-    <li>We <strong>don't</strong> negotiate prices.</li>
-    <li>We <strong>don't</strong> do C2C.</li>
-    <li>We <strong>don't</strong> chat during the stream.</li>
-    <li class="wide"><strong>Don't</strong> send dick pics — you'll be blocked.</li>
+    <li><span class="n">01</span><span><b>Tip first</b>, then ask. Always.</span></li>
+    <li><span class="n">02</span><span>Prices aren't up for <b>debate</b>.</span></li>
+    <li><span class="n">03</span><span>No <b>cam-to-cam</b>.</span></li>
+    <li><span class="n">04</span><span>No <b>chatting</b> mid-stream.</span></li>
+    <li><span class="n">05</span><span>Dick pics = <b>instant block</b>.</span></li>
   </ul>
+  <div class="close">Respect that — and we'll <b>spoil you rotten</b>.</div>
 </div>
 </body></html>

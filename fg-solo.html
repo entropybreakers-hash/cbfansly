@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(242,239,231,.12);}
+  :root{--warm:#F4F1EC;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(244,241,236,.12);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  /* block 3 — stays on black */
-  .bar{width:1920px;height:980px;display:flex;align-items:stretch;background:#0B0B0C;font-family:'Archivo',sans-serif;color:var(--warm);}
-  .media{flex:0 0 40%;padding:70px 40px 70px 120px;display:flex;}
-  .card{flex:1;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(242,239,231,.12);box-shadow:0 40px 90px rgba(0,0,0,.6);}
-  .card .ph{position:absolute;inset:0;background:url('assets/bio/solo-src.jpg') center 18%/cover no-repeat;}
-  .txt{flex:1;padding:92px 300px 92px 76px;display:flex;flex-direction:column;justify-content:center;}
-  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);margin-bottom:26px;}
-  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:80px;line-height:.96;text-transform:uppercase;}
-  .handle{margin-top:26px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:36px;letter-spacing:.02em;color:var(--warm);}
-  .handle span{color:var(--mute);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:6px;}
-  .tap{margin-top:24px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0B0B0C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;letter-spacing:.12em;text-transform:uppercase;padding:16px 34px;border-radius:999px;}
-  .sched{margin-top:46px;border-top:1px solid var(--line);padding-top:30px;max-width:560px;}
-  .sched .lab{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:23px;letter-spacing:.32em;text-transform:uppercase;color:var(--hot);margin-bottom:18px;}
-  .sched .row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);}
+  /* solo — black block */
+  .bar{width:1920px;height:1040px;display:flex;align-items:stretch;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);}
+  .media{flex:0 0 40%;padding:100px 50px 100px 120px;display:flex;}
+  .card{flex:1;position:relative;border-radius:20px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.6);}
+  .card .ph{position:absolute;inset:0;background:url('assets/bio/solo-src.jpg') center 16%/cover no-repeat;}
+  .txt{flex:1;padding:100px 300px 100px 84px;display:flex;flex-direction:column;justify-content:center;}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:var(--hot);margin-bottom:30px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:78px;line-height:1.02;letter-spacing:-.025em;}
+  .lead{margin-top:32px;font-size:30px;font-weight:300;line-height:1.5;color:#c7c2cb;max-width:24ch;}
+  .handle{margin-top:42px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:38px;letter-spacing:-.01em;color:var(--warm);}
+  .handle span{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;}
+  .tap{margin-top:26px;display:inline-flex;align-items:center;gap:14px;align-self:flex-start;background:var(--hot);color:#0A0A0B;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:26px;letter-spacing:.01em;padding:18px 38px;border-radius:999px;}
+  .sched{margin-top:50px;border-top:1px solid var(--line);padding-top:30px;max-width:600px;}
+  .sched .lab{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:21px;letter-spacing:.06em;color:var(--warm);margin-bottom:8px;}
+  .sched .fomo{font-size:22px;font-weight:300;color:var(--hot);margin-bottom:22px;}
+  .sched .row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
   .sched .row:last-child{border-bottom:none;}
-  .sched .z{font-family:'Archivo',sans-serif;font-size:24px;color:var(--mute);}
-  .sched .t{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:31px;letter-spacing:.04em;color:var(--warm);}
+  .sched .z{font-size:23px;font-weight:300;color:var(--mute);}
+  .sched .t{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:29px;color:var(--warm);}
 </style></head>
 <body>
 <div class="bar">
   <div class="media"><div class="card"><div class="ph"></div></div></div>
   <div class="txt">
-    <div class="eyebrow">Just Rebi</div>
-    <h1>Solo on<br>Fansly</h1>
-    <div class="handle"><span>Rebi's Fansly — solo</span>badbunnyyy77</div>
-    <div class="tap">Click here for Rebi's Fansly</div>
+    <div class="eyebrow">Just Rebi · Fansly</div>
+    <h1>Rebi, all to<br>yourself.</h1>
+    <div class="lead">Her solo side — soft, then not so soft.</div>
+    <div class="handle"><span>Find her at</span>badbunnyyy77</div>
+    <div class="tap">Open Rebi's page &#8594;</div>
     <div class="sched">
       <div class="lab">Live every evening</div>
-      <div class="row"><span class="z">Vienna &middot; Europe</span><span class="t">from 18:00</span></div>
+      <div class="fomo">Nothing is recorded — miss it and it's gone.</div>
+      <div class="row"><span class="z">Vienna · Europe</span><span class="t">from 18:00</span></div>
       <div class="row"><span class="z">New York / Toronto</span><span class="t">from 12:00 PM</span></div>
       <div class="row"><span class="z">Los Angeles / Vancouver</span><span class="t">from 9:00 AM</span></div>
     </div>
