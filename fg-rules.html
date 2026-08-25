@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--warm:#F2EFEA;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(242,239,231,.1);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  /* House rules — clean statement panel, stays on black */
+  .bar{width:1920px;height:820px;background:#0B0B0C;font-family:'Archivo',sans-serif;color:var(--warm);
+    display:flex;flex-direction:column;justify-content:center;padding:0 300px 0 300px;position:relative;}
+  .top{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);}
+  .head{display:flex;align-items:baseline;gap:26px;margin-bottom:44px;}
+  .eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:76px;line-height:.94;text-transform:uppercase;}
+  .rules{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 90px;max-width:1180px;}
+  .rules li{display:flex;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);font-size:29px;line-height:1.32;color:#cfcad4;}
+  .rules li::before{content:"";flex:none;width:18px;height:2px;background:var(--hot);transform:translateY(-9px);}
+  .rules li strong{color:var(--warm);font-weight:600;}
+  .rules li.wide{grid-column:1 / -1;}
+</style></head>
+<body>
+<div class="bar">
+  <div class="top"></div>
+  <div class="head">
+    <div class="eyebrow">Before we play</div>
+    <h1>House rules</h1>
+  </div>
+  <ul class="rules">
+    <li>We <strong>don't</strong> do anything unless it's tipped for first.</li>
+    <li>We <strong>don't</strong> negotiate prices.</li>
+    <li>We <strong>don't</strong> do C2C.</li>
+    <li>We <strong>don't</strong> chat during the stream.</li>
+    <li class="wide"><strong>Don't</strong> send dick pics — you'll be blocked.</li>
+  </ul>
+</div>
+</body></html>
