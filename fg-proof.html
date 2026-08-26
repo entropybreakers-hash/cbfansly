@@ -3,13 +3,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--cream:#0A0A0B;--ink:#F5F1E9;--soft:#9a94a0;--hot:#FF6FA5;--line:rgba(245,241,233,.16);}
+  :root{--ink:#F5F1E9;--soft:#9a94a0;--hot:#FF6FA5;--line:rgba(245,241,233,.16);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:1120px;background:var(--cream);font-family:'Inter',sans-serif;color:var(--ink);
-    display:flex;align-items:center;gap:110px;padding:0 300px;}
+  .bar{width:1920px;height:1120px;background:#08080A;font-family:'Inter',sans-serif;color:var(--ink);
+    display:flex;align-items:center;justify-content:center;padding:0 110px;position:relative;overflow:hidden;}
+  .a-warm{position:absolute;left:50%;top:22%;width:1500px;height:1000px;transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(245,241,233,.06) 0%,rgba(245,241,233,0) 70%);filter:blur(30px);}
+  .a-pink{position:absolute;left:78%;top:76%;width:1150px;height:1150px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.15) 0%,rgba(255,111,165,0) 62%);filter:blur(44px);}
+  .a-pink2{position:absolute;left:20%;top:24%;width:820px;height:820px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.08) 0%,rgba(255,111,165,0) 60%);filter:blur(46px);}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 72% 70% at 50% 46%,rgba(8,8,10,0) 42%,rgba(6,6,8,.55) 84%,rgba(4,4,6,.85) 100%);}
+  .glass{position:relative;z-index:2;display:flex;align-items:stretch;gap:110px;width:100%;
+    max-width:1620px;padding:82px 130px;border-radius:32px;
+    background:linear-gradient(180deg,rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 100%);
+    border:1px solid rgba(245,241,233,.10);
+    box-shadow:0 44px 100px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter:blur(8px) saturate(115%);-webkit-backdrop-filter:blur(8px) saturate(115%);}
   .col{flex:1;}
   .eyebrow{font-weight:500;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:18px;}
-  h2{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:52px;line-height:1.0;letter-spacing:0;margin-bottom:40px;}
+  h2{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:50px;line-height:1.0;letter-spacing:0;margin-bottom:36px;}
   ul{list-style:none;}
   .rules li{display:flex;gap:16px;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line);font-size:22px;font-weight:300;line-height:1.3;color:var(--soft);}
   .rules li:last-child{border-bottom:none;}
@@ -19,31 +32,37 @@
     font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:27px;line-height:1.22;color:var(--ink);}
   .gets li:last-child{border-bottom:none;}
   .gets li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--hot);transform:translateY(-4px);}
-  .mid{width:1px;align-self:stretch;background:var(--line);margin:80px 0;}
+  .mid{width:1px;align-self:stretch;background:var(--line);margin:10px 0;}
 </style></head>
 <body>
 <div class="bar">
-  <div class="col">
-    <div class="eyebrow">Before we play</div>
-    <h2>House rules</h2>
-    <ul class="rules">
-      <li><span class="n">01</span><span><b>Tip before you ask.</b> Every time.</span></li>
-      <li><span class="n">02</span><span>No haggling. Prices are <b>prices</b>.</span></li>
-      <li><span class="n">03</span><span>No cam-to-cam, sorry babe.</span></li>
-      <li><span class="n">04</span><span>We won’t text back <b>mid-show</b>.</span></li>
-      <li><span class="n">05</span><span>Dick pics? <b>Instant block.</b></span></li>
-    </ul>
-  </div>
-  <div class="mid"></div>
-  <div class="col">
-    <div class="eyebrow">Now the fun</div>
-    <h2>What you get</h2>
-    <ul class="gets">
-      <li>You’ll feel right at home.</li>
-      <li>Got a fantasy? We’re so down.</li>
-      <li>We fuck in public, not just private.</li>
-      <li>Private shows when you treat us right.</li>
-    </ul>
+  <div class="a-warm"></div>
+  <div class="a-pink"></div>
+  <div class="a-pink2"></div>
+  <div class="vig"></div>
+  <div class="glass">
+    <div class="col">
+      <div class="eyebrow">Before we play</div>
+      <h2>House rules</h2>
+      <ul class="rules">
+        <li><span class="n">01</span><span><b>Tip before you ask.</b> Every time.</span></li>
+        <li><span class="n">02</span><span>No haggling. Prices are <b>prices</b>.</span></li>
+        <li><span class="n">03</span><span>No cam-to-cam, sorry babe.</span></li>
+        <li><span class="n">04</span><span>We won&#8217;t text back <b>mid-show</b>.</span></li>
+        <li><span class="n">05</span><span>Dick pics? <b>Instant block.</b></span></li>
+      </ul>
+    </div>
+    <div class="mid"></div>
+    <div class="col">
+      <div class="eyebrow">Now the fun</div>
+      <h2>What you get</h2>
+      <ul class="gets">
+        <li>You&#8217;ll feel right at home.</li>
+        <li>Got a fantasy? We&#8217;re so down.</li>
+        <li>We fuck in public, not just private.</li>
+        <li>Private shows when you treat us right.</li>
+      </ul>
+    </div>
   </div>
 </div>
 </body></html>

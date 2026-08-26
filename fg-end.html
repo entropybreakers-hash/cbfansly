@@ -5,35 +5,48 @@
 <style>
   :root{--warm:#F5F1E9;--mute:#9a94a0;--hot:#FF6FA5;--line:rgba(245,241,233,.16);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:1120px;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 260px;position:relative;overflow:hidden;text-align:center;}
-  .wash{position:absolute;left:50%;top:44%;width:1300px;height:1300px;transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(255,46,126,.13) 0%,rgba(255,46,126,0) 60%);}
-  .in{position:relative;display:flex;flex-direction:column;align-items:center;width:100%;max-width:1160px;}
+  .bar{width:1920px;height:1120px;background:#08080A;font-family:'Inter',sans-serif;color:var(--warm);
+    display:flex;align-items:center;justify-content:center;padding:0 110px;position:relative;overflow:hidden;text-align:center;}
+  .a-warm{position:absolute;left:50%;top:22%;width:1500px;height:1000px;transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(245,241,233,.06) 0%,rgba(245,241,233,0) 70%);filter:blur(30px);}
+  .a-pink{position:absolute;left:76%;top:74%;width:1150px;height:1150px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.16) 0%,rgba(255,111,165,0) 62%);filter:blur(44px);}
+  .a-pink2{position:absolute;left:22%;top:26%;width:820px;height:820px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.08) 0%,rgba(255,111,165,0) 60%);filter:blur(46px);}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 72% 70% at 50% 46%,rgba(8,8,10,0) 42%,rgba(6,6,8,.55) 84%,rgba(4,4,6,.85) 100%);}
+  .glass{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;
+    max-width:1620px;padding:78px 150px;border-radius:32px;
+    background:linear-gradient(180deg,rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 100%);
+    border:1px solid rgba(245,241,233,.10);
+    box-shadow:0 44px 100px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter:blur(8px) saturate(115%);-webkit-backdrop-filter:blur(8px) saturate(115%);}
   .eyebrow{font-weight:500;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
-  h2{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:72px;line-height:1.0;margin-bottom:60px;}
+  h2{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:66px;line-height:1.0;margin-bottom:52px;}
   .rows{width:100%;display:flex;flex-direction:column;gap:0;}
-  .row{display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 6px;border-bottom:1px solid var(--line);}
+  .row{display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:24px 6px;border-bottom:1px solid var(--line);}
   .row:first-child{border-top:1px solid var(--line);}
-  .city{font-size:30px;font-weight:500;letter-spacing:.01em;}
-  .city span{color:var(--mute);font-weight:300;font-size:22px;margin-left:14px;letter-spacing:0;}
-  .time{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:36px;color:var(--hot);white-space:nowrap;}
-  .note{margin-top:34px;font-size:20px;font-weight:300;color:var(--mute);}
-  .dmca{margin-top:56px;display:inline-flex;align-items:center;gap:14px;font-size:17px;font-weight:400;letter-spacing:.04em;color:var(--mute);}
+  .city{font-size:29px;font-weight:500;letter-spacing:.01em;}
+  .city span{color:var(--mute);font-weight:300;font-size:21px;margin-left:14px;letter-spacing:0;}
+  .time{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:34px;color:var(--hot);white-space:nowrap;}
+  .note{margin-top:30px;font-size:20px;font-weight:300;color:var(--mute);}
+  .dmca{margin-top:44px;display:inline-flex;align-items:center;gap:14px;font-size:16px;font-weight:400;letter-spacing:.04em;color:var(--mute);}
   .dmca .sep{color:var(--hot);}
 </style></head>
 <body>
 <div class="bar">
-  <div class="wash"></div>
-  <div class="in">
+  <div class="a-warm"></div>
+  <div class="a-pink"></div>
+  <div class="a-pink2"></div>
+  <div class="vig"></div>
+  <div class="glass">
     <div class="eyebrow">Catch us live</div>
-    <h2>When we’re on</h2>
+    <h2>When we&#8217;re on</h2>
     <div class="rows">
       <div class="row"><div class="city">Vienna<span>Europe</span></div><div class="time">from 18:00</div></div>
       <div class="row"><div class="city">New York<span>Toronto</span></div><div class="time">from 12:00 PM</div></div>
       <div class="row"><div class="city">Los Angeles<span>Vancouver</span></div><div class="time">from 9:00 AM</div></div>
     </div>
-    <div class="note">Most nights we’re on. Follow the room so you never miss a show.</div>
+    <div class="note">Most nights we&#8217;re on. Follow the room so you never miss a show.</div>
     <div class="dmca">Protected by bruqi.com<span class="sep">&middot;</span>Chaturbate DMCA<span class="sep">&middot;</span>18+</div>
   </div>
 </div>
