@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--warm:#F4F1EC;--mute:#a49ea6;--hot:#FF2E7E;--line:rgba(244,241,236,.12);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .bar{width:1920px;height:1120px;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 260px;position:relative;overflow:hidden;text-align:center;}
+  .wash{position:absolute;left:50%;top:44%;width:1300px;height:1300px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,46,126,.13) 0%,rgba(255,46,126,0) 60%);}
+  .in{position:relative;display:flex;flex-direction:column;align-items:center;width:100%;max-width:1160px;}
+  .eyebrow{font-weight:500;font-size:17px;letter-spacing:.3em;text-transform:uppercase;color:var(--hot);margin-bottom:22px;}
+  h2{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:72px;line-height:1.0;margin-bottom:60px;}
+  .rows{width:100%;display:flex;flex-direction:column;gap:0;}
+  .row{display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 6px;border-bottom:1px solid var(--line);}
+  .row:first-child{border-top:1px solid var(--line);}
+  .city{font-size:30px;font-weight:500;letter-spacing:.01em;}
+  .city span{color:var(--mute);font-weight:300;font-size:22px;margin-left:14px;letter-spacing:0;}
+  .time{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:36px;color:var(--hot);white-space:nowrap;}
+  .note{margin-top:34px;font-size:20px;font-weight:300;color:var(--mute);}
+  .dmca{margin-top:56px;display:inline-flex;align-items:center;gap:14px;font-size:17px;font-weight:400;letter-spacing:.04em;color:var(--mute);}
+  .dmca .sep{color:var(--hot);}
+</style></head>
+<body>
+<div class="bar">
+  <div class="wash"></div>
+  <div class="in">
+    <div class="eyebrow">Catch us live</div>
+    <h2>When we're on</h2>
+    <div class="rows">
+      <div class="row"><div class="city">Vienna<span>Europe</span></div><div class="time">from 18:00</div></div>
+      <div class="row"><div class="city">New York<span>Toronto</span></div><div class="time">from 12:00 PM</div></div>
+      <div class="row"><div class="city">Los Angeles<span>Vancouver</span></div><div class="time">from 9:00 AM</div></div>
+    </div>
+    <div class="note">Most nights we're on. Follow the room so you never miss a show.</div>
+    <div class="dmca">Protected by bruqi.com<span class="sep">&middot;</span>Chaturbate DMCA<span class="sep">&middot;</span>18+</div>
+  </div>
+</div>
+</body></html>
