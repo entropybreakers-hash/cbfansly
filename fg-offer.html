@@ -5,25 +5,40 @@
 <style>
   :root{--warm:#F5F1E9;--mute:#9a94a0;--hot:#FF6FA5;--line:rgba(245,241,233,.16);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:1120px;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);
-    display:flex;align-items:center;justify-content:center;padding:0 260px;position:relative;overflow:hidden;text-align:center;}
-  .wash{position:absolute;left:50%;top:44%;width:1500px;height:1500px;transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(255,46,126,.10) 0%,rgba(255,46,126,0) 58%);}
-  .in{position:relative;display:flex;flex-direction:column;align-items:center;max-width:1180px;}
-  .eyebrow{font-weight:500;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:34px;}
-  h1{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:98px;line-height:1.02;letter-spacing:-.01em;max-width:15ch;}
-  .sub{margin-top:34px;font-size:30px;font-weight:300;line-height:1.4;color:var(--mute);max-width:1000px;}
-  .rule{width:66px;height:1px;background:var(--line);margin:54px 0 46px;}
-  .offer{font-size:29px;font-weight:400;line-height:1.5;color:var(--warm);max-width:680px;}
+  .bar{width:1920px;height:1120px;background:#08080A;font-family:'Inter',sans-serif;color:var(--warm);
+    display:flex;align-items:center;justify-content:center;padding:0 200px;position:relative;overflow:hidden;text-align:center;}
+  /* aurora depth */
+  .a-warm{position:absolute;left:50%;top:22%;width:1500px;height:1000px;transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(245,241,233,.06) 0%,rgba(245,241,233,0) 70%);filter:blur(30px);}
+  .a-pink{position:absolute;left:76%;top:74%;width:1150px;height:1150px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.16) 0%,rgba(255,111,165,0) 62%);filter:blur(44px);}
+  .a-pink2{position:absolute;left:22%;top:26%;width:820px;height:820px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,111,165,.08) 0%,rgba(255,111,165,0) 60%);filter:blur(46px);}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 72% 70% at 50% 46%,rgba(8,8,10,0) 42%,rgba(6,6,8,.55) 84%,rgba(4,4,6,.85) 100%);}
+  /* frosted glass card */
+  .glass{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;
+    max-width:1180px;padding:84px 108px;border-radius:30px;
+    background:linear-gradient(180deg,rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 100%);
+    border:1px solid rgba(245,241,233,.10);
+    box-shadow:0 44px 100px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter:blur(8px) saturate(115%);-webkit-backdrop-filter:blur(8px) saturate(115%);}
+  .eyebrow{font-weight:500;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:32px;}
+  h1{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:94px;line-height:1.02;letter-spacing:-.01em;max-width:15ch;}
+  .sub{margin-top:32px;font-size:29px;font-weight:300;line-height:1.4;color:var(--mute);max-width:900px;}
+  .rule{width:66px;height:1px;background:var(--line);margin:48px 0 42px;}
+  .offer{font-size:28px;font-weight:400;line-height:1.5;color:var(--warm);max-width:660px;}
   .offer em{font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--hot);}
-  .scar{margin-top:26px;font-weight:600;font-size:14px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);}
+  .scar{margin-top:24px;font-weight:600;font-size:14px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);}
 </style></head>
 <body>
 <div class="bar">
-  <div class="wash"></div>
-  <div class="in">
+  <div class="a-warm"></div>
+  <div class="a-pink"></div>
+  <div class="a-pink2"></div>
+  <div class="vig"></div>
+  <div class="glass">
     <div class="eyebrow">On Fansly</div>
-    <h1>Whatever you’re into, it’s already there.</h1>
+    <h1>Whatever you&#8217;re into, it&#8217;s already there.</h1>
     <div class="sub">Soft and slow, rough and filthy, and everything in between.</div>
     <div class="rule"></div>
     <div class="offer">Join any tier today and a full-length film we never posted arrives in your DMs. <em>On us.</em></div>
