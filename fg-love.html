@@ -3,20 +3,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--cream:#F5F1E9;--ink:#141210;--soft:#5c574f;--hot:#E11466;--line:rgba(20,18,16,.12);}
+  :root{--warm:#F4F1EC;--mute:#8b8690;--hot:#FF2E7E;--line:rgba(244,241,236,.12);}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .bar{width:1920px;height:1120px;display:flex;align-items:stretch;background:var(--cream);font-family:'Inter',sans-serif;color:var(--ink);}
+  /* couple — black block */
+  .bar{width:1920px;height:1120px;display:flex;align-items:stretch;background:#0A0A0B;font-family:'Inter',sans-serif;color:var(--warm);}
   .txt{flex:0 0 52%;padding:110px 90px 110px 320px;display:flex;flex-direction:column;justify-content:center;}
   .eyebrow{font-weight:500;font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--hot);margin-bottom:24px;}
   h1{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:60px;line-height:1.05;letter-spacing:0;}
-  .lead{margin-top:28px;font-size:23px;font-weight:300;line-height:1.5;color:var(--soft);max-width:24ch;}
-  .scarcity{margin-top:34px;display:inline-flex;align-self:flex-start;align-items:center;gap:11px;font-weight:500;font-size:16px;color:var(--ink);background:rgba(225,20,102,.1);border:1px solid rgba(225,20,102,.35);border-radius:999px;padding:10px 20px;}
+  .lead{margin-top:28px;font-size:23px;font-weight:300;line-height:1.5;color:#c7c2cb;max-width:24ch;}
+  .scarcity{margin-top:34px;display:inline-flex;align-self:flex-start;align-items:center;gap:11px;font-weight:500;font-size:16px;color:var(--warm);background:rgba(255,46,126,.12);border:1px solid rgba(255,46,126,.42);border-radius:999px;padding:10px 20px;}
   .scarcity .dot{width:8px;height:8px;border-radius:50%;background:var(--hot);}
-  .handle{margin-top:38px;font-weight:600;font-size:30px;letter-spacing:-.01em;color:var(--ink);}
-  .handle span{display:block;font-weight:500;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:7px;}
-  .tap{margin-top:24px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#fff;font-weight:600;font-size:20px;letter-spacing:.01em;padding:15px 32px;border-radius:999px;}
+  .handle{margin-top:38px;font-weight:600;font-size:30px;letter-spacing:-.01em;color:var(--warm);}
+  .handle span{display:block;font-weight:500;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:7px;}
+  .tap{margin-top:24px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--hot);color:#0A0A0B;font-weight:600;font-size:20px;letter-spacing:.01em;padding:15px 32px;border-radius:999px;}
   .media{flex:1;padding:96px 90px 96px 50px;display:flex;}
-  .card{flex:1;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(20,18,16,.28);}
+  .card{flex:1;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.6);}
   .card .ph{position:absolute;inset:0;background:url('assets/bio/hero-src.jpg') center 20%/cover no-repeat;}
 </style></head>
 <body>
