@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   #bg{position:relative;width:1920px;height:1240px;background:#0A0A0B;overflow:hidden;
     display:flex;align-items:center;justify-content:center;}
-  .glow{position:absolute;left:50%;top:50%;width:1000px;height:1000px;transform:translate(-50%,-50%);
-    background:radial-gradient(circle,rgba(255,46,126,.10) 0%,rgba(255,46,126,0) 62%);}
-  .frame{position:relative;width:420px;height:560px;
-    background:url('assets/bio/newhero.JPG') 62% 30%/cover no-repeat;
-    -webkit-mask-image:radial-gradient(ellipse 64% 62% at 50% 50%,#000 52%,rgba(0,0,0,0) 100%);
-            mask-image:radial-gradient(ellipse 64% 62% at 50% 50%,#000 52%,rgba(0,0,0,0) 100%);}
+  /* soft off-white halo behind the photo */
+  .cream{position:absolute;left:50%;top:49%;width:1020px;height:820px;transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse 50% 52% at 50% 50%,rgba(245,241,233,.34) 0%,rgba(245,241,233,.12) 52%,rgba(245,241,233,0) 76%);}
+  .glow{position:absolute;left:50%;top:50%;width:900px;height:900px;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(255,46,126,.08) 0%,rgba(255,46,126,0) 62%);}
+  /* wider frame, softer oval fade */
+  .frame{position:relative;width:700px;height:560px;
+    background:url('assets/bio/newhero.JPG') 60% 30%/cover no-repeat;
+    -webkit-mask-image:radial-gradient(ellipse 66% 64% at 50% 50%,#000 38%,rgba(0,0,0,0) 100%);
+            mask-image:radial-gradient(ellipse 66% 64% at 50% 50%,#000 38%,rgba(0,0,0,0) 100%);}
 </style></head>
 <body>
 <div id="bg">
+  <div class="cream"></div>
   <div class="glow"></div>
   <div class="frame"></div>
 </div>
