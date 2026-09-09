@@ -13,6 +13,18 @@
     filter:blur(70px) sepia(1) saturate(9) hue-rotate(-28deg) brightness(.55);opacity:.85;display:none;}
   body.c .glow{display:block;} body.c .haze{background:radial-gradient(ellipse 34% 70% at 50% 45%,rgba(255,120,90,.16),rgba(255,120,90,0) 70%);}
   body.c .cr{color:rgba(243,228,212,.55);}
+  body.d{background:radial-gradient(ellipse 46% 120% at 50% 60%,#5a0d14 0%,#2a0508 40%,#050102 100%);}
+  body.d .haze{background:radial-gradient(ellipse 30% 80% at 50% 50%,rgba(255,110,80,.20),rgba(255,110,80,0) 70%);}
+  body.d .title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:300px;letter-spacing:.5em;padding-left:.5em;color:rgba(245,228,214,.86);
+    text-shadow:0 0 60px rgba(255,120,100,.25),0 8px 40px rgba(0,0,0,.6);}
+  body.d .fig{filter:saturate(.95) contrast(1.2) brightness(.86) drop-shadow(0 30px 60px rgba(0,0,0,.8));}
+  .shade{position:absolute;left:50%;bottom:0;height:100%;transform:translateX(-50%);z-index:2;filter:brightness(0);opacity:.62;display:none;
+    -webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,1) 18%,rgba(0,0,0,0) 62%);mask-image:linear-gradient(100deg,rgba(0,0,0,1) 18%,rgba(0,0,0,0) 62%);}
+  body.d .shade{display:block;} body.d .glow{display:block;opacity:.95;filter:blur(80px) sepia(1) saturate(9) hue-rotate(-30deg) brightness(.6);}
+  body.d .grain{opacity:.12;} body.d .cr{display:none;}
+  body.d .vig{background:radial-gradient(ellipse 60% 90% at 50% 50%,rgba(0,0,0,0) 35%,rgba(0,0,0,.62) 80%,rgba(0,0,0,.92) 100%);}
+  .cta{position:absolute;left:0;right:0;bottom:44px;text-align:center;z-index:6;font-family:'Inter',sans-serif;font-weight:400;font-size:19px;letter-spacing:.55em;text-transform:lowercase;color:rgba(245,228,214,.5);display:none;}
+  body.d .cta{display:block;}
   body.b{background:radial-gradient(ellipse 70% 110% at 50% 45%,#2a2a2a 0%,#151515 50%,#000 100%);}
   .haze{position:absolute;inset:0;background:radial-gradient(ellipse 30% 60% at 50% 40%,rgba(255,255,255,.10),rgba(255,255,255,0) 70%);}
   .title{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:max-content;text-align:center;white-space:nowrap;z-index:1;}
@@ -32,16 +44,17 @@
 <body class="a">
 <div class="haze"></div>
 <div class="title" id="title">FOLLOW &amp; SUBSCRIBE</div>
-<img class="glow" id="glow" src="cut/p7.png" alt=""><img class="fig" id="fig" src="cut/p7.png" alt="">
+<img class="glow" id="glow" src="cut/p7.png" alt=""><img class="fig" id="fig" src="cut/p7.png" alt=""><img class="shade" id="shade" src="cut/p7.png" alt="">
 <canvas class="dust" id="dust" width="2560" height="853"></canvas>
 <div class="vig"></div>
 <svg class="grain" width="2560" height="853"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
-<div class="cr t">Rebi presents</div>
+<div class="cr t">Rebi presents</div><div class="cta">follow &amp; subscribe</div>
 <div class="cr l">Solo &nbsp;·&nbsp; GFE &nbsp;·&nbsp; Femdom &nbsp;·&nbsp; Findom</div>
 <div class="cr r">Fansly &nbsp;/ 2026</div>
 <script>
   const q=new URLSearchParams(location.search); document.body.className=q.get('v')||'a';
-  if(q.get('img')){fig.src=q.get('img');glow.src=q.get('img');}
+  if(q.get('img')){fig.src=q.get('img');glow.src=q.get('img');shade.src=q.get('img');}
+  if(q.get('word')) title.textContent=q.get('word');
   if(document.body.className==='b') title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';
   if(document.body.className==='a'||document.body.className==='c'){fig.style.left=q.get('fx')||'44%';glow.style.left=fig.style.left;let fs=158;title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=2;title.style.fontSize=fs+'px';}}
   if(q.get('layout')==='side'){title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';title.style.left='110px';title.style.transform='translateY(-50%)';title.style.textAlign='left';title.style.fontSize='150px';title.style.lineHeight='1.25';title.style.letterSpacing='.28em';title.style.paddingLeft='0';
@@ -51,6 +64,10 @@
     glow.style.transform='scale(1.06)';
     const fit=()=>{const avail=q.get('avail')?+q.get('avail'):fig.getBoundingClientRect().left-110-90;let fs=150;title.style.fontSize=fs+'px';while(title.scrollWidth>avail&&fs>70){fs-=2;title.style.fontSize=fs+'px';}};
     if(fig.complete) fit(); else fig.onload=fit;}
+  if(q.get('layout')==='word'){
+    for(const el of [fig,glow,shade]){el.style.height=q.get('fh')||'100%';if(q.get('anchor')==='top'){el.style.bottom='auto';el.style.top='0';}el.style.left='50%';}
+    fig.style.transform='translateX(-50%)';shade.style.transform='translateX(-50%)';glow.style.transform='translateX(-50%) scale(1.06)';
+    let fs=+(q.get('fs')||300);title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=4;title.style.fontSize=fs+'px';}}
   if(q.get('layout')==='center'){
     title.innerHTML='<span id="w1">FOLLOW</span><span id="amp">&amp;</span><span id="w2">SUBSCRIBE</span>';
     title.style.left='0';title.style.width='2560px';title.style.transform='translateY(-50%)';
