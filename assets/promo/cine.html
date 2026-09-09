@@ -52,12 +52,17 @@
     const fit=()=>{const avail=q.get('avail')?+q.get('avail'):fig.getBoundingClientRect().left-110-90;let fs=150;title.style.fontSize=fs+'px';while(title.scrollWidth>avail&&fs>70){fs-=2;title.style.fontSize=fs+'px';}};
     if(fig.complete) fit(); else fig.onload=fit;}
   if(q.get('layout')==='center'){
-    title.innerHTML='FOLLOW<span id="amp">&amp;</span>SUBSCRIBE';
+    title.innerHTML='<span id="w1">FOLLOW</span><span id="amp">&amp;</span><span id="w2">SUBSCRIBE</span>';
+    title.style.left='0';title.style.width='2560px';title.style.transform='translateY(-50%)';
+    for(const id of ['w1','w2','amp']){const e=document.getElementById(id);e.style.position='absolute';e.style.top='0';e.style.whiteSpace='nowrap';}
+    document.getElementById('amp').style.left='50%';document.getElementById('amp').style.transform='translateX(-50%)';
     for(const el of [fig,glow]){el.style.height=q.get('fh')||'100%';if(q.get('anchor')==='top'){el.style.bottom='auto';el.style.top='0';}el.style.left='50%';}
     fig.style.transform='translateX(-50%)';glow.style.transform='translateX(-50%) scale(1.06)';
-    const fit=()=>{const fw=fig.getBoundingClientRect().width;const amp=document.getElementById('amp');
-      let fs=150;const set=()=>{title.style.fontSize=fs+'px';const aw=amp.getBoundingClientRect().width;const g=Math.max(0,(fw-aw)/2+ (+(q.get('pad')||40)));amp.style.margin='0 '+g+'px';};
-      set();while(title.scrollWidth>2400&&fs>80){fs-=2;set();}};
+    const fit=()=>{const fw=fig.getBoundingClientRect().width,pad=+(q.get('pad')||0),ls=q.get('ls')||'.22em';
+      const g=fw/2+pad;const w1=document.getElementById('w1'),w2=document.getElementById('w2');
+      title.style.letterSpacing=ls;w1.style.right=(1280+g)+'px';w2.style.left=(1280+g)+'px';
+      let fs=170;const avail=1280-g-100;do{fs-=2;title.style.fontSize=fs+'px';}while(w2.getBoundingClientRect().width>avail&&fs>70);
+      title.style.height=fs+'px';};
     if(fig.complete) fit(); else fig.onload=fit;}
   const c=dust.getContext('2d'); let s=7;
   const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
