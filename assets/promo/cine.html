@@ -45,7 +45,12 @@
   if(document.body.className==='b') title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';
   if(document.body.className==='a'||document.body.className==='c'){fig.style.left=q.get('fx')||'44%';glow.style.left=fig.style.left;let fs=158;title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=2;title.style.fontSize=fs+'px';}}
   if(q.get('layout')==='side'){title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';title.style.left='110px';title.style.transform='translateY(-50%)';title.style.textAlign='left';title.style.fontSize='150px';title.style.lineHeight='1.25';title.style.letterSpacing='.28em';title.style.paddingLeft='0';
-    fig.style.left='auto';fig.style.right='0';fig.style.transform='none';glow.style.left='auto';glow.style.right='0';glow.style.transform='scale(1.06)';}
+    for(const el of [fig,glow]){el.style.left='auto';el.style.right='0';el.style.transform='none';el.style.height=q.get('fh')||'100%';
+      if(q.get('anchor')==='top'){el.style.bottom='auto';el.style.top='0';}
+      if(q.get('fr')) el.style.right=q.get('fr');}
+    glow.style.transform='scale(1.06)';
+    const fit=()=>{const avail=q.get('avail')?+q.get('avail'):fig.getBoundingClientRect().left-110-90;let fs=150;title.style.fontSize=fs+'px';while(title.scrollWidth>avail&&fs>70){fs-=2;title.style.fontSize=fs+'px';}};
+    if(fig.complete) fit(); else fig.onload=fit;}
   const c=dust.getContext('2d'); let s=7;
   const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
   for(let i=0;i<80;i++){const x=rnd()*2560,y=rnd()*853,r=.6+rnd()*2.2,o=.08+rnd()*.38;
