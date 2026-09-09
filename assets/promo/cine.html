@@ -80,6 +80,7 @@
   if(q.get('layout')==='word'){
     for(const el of [fig,glow,shade]){el.style.height=q.get('fh')||'100%';if(q.get('anchor')==='top'){el.style.bottom='auto';el.style.top='0';}if(q.get('ftop')){el.style.bottom='auto';el.style.top=q.get('ftop')+'px';}el.style.left='50%';}
     if(q.get('ctab')){document.querySelector('.cta').style.bottom=q.get('ctab')+'px';}
+    if(q.get('ctar')){const c=document.querySelector('.cta');c.style.left='auto';c.style.right=q.get('ctar')+'px';c.style.textAlign='right';}
     fig.style.transform='translateX(-50%)';shade.style.transform='translateX(-50%)';glow.style.transform='translateX(-50%) scale(1.06)';
     let fs=+(q.get('fs')||300);if(q.get('ls')){title.style.letterSpacing=q.get('ls');title.style.paddingLeft=q.get('ls');}title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=4;title.style.fontSize=fs+'px';}
     if(q.get('kern')){const kern=q.get('kern');const wrap=el=>{const t=el.textContent;el.innerHTML=[...t].map((ch,i)=>`<span data-i="${i}">${ch}</span>`).join('');
