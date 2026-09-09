@@ -6,6 +6,13 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{width:2560px;height:853px;overflow:hidden;position:relative;color:#fff;}
   body.a{background:radial-gradient(ellipse 70% 110% at 50% 45%,#22383e 0%,#15262b 45%,#08110f 100%);}
+  body.c{background:radial-gradient(ellipse 60% 120% at 50% 55%,#4a0b12 0%,#2a0609 45%,#070203 100%);}
+  body.c .title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:158px;letter-spacing:.34em;padding-left:.34em;color:#f3e4d4;text-shadow:0 6px 40px rgba(0,0,0,.6);}
+  body.c .fig{filter:saturate(1.12) contrast(1.14) brightness(.94) drop-shadow(0 30px 60px rgba(0,0,0,.75));}
+  .glow{position:absolute;left:50%;bottom:0;height:100%;transform:translateX(-50%) scale(1.06);z-index:0;
+    filter:blur(70px) sepia(1) saturate(9) hue-rotate(-28deg) brightness(.55);opacity:.85;display:none;}
+  body.c .glow{display:block;} body.c .haze{background:radial-gradient(ellipse 34% 70% at 50% 45%,rgba(255,120,90,.16),rgba(255,120,90,0) 70%);}
+  body.c .cr{color:rgba(243,228,212,.55);}
   body.b{background:radial-gradient(ellipse 70% 110% at 50% 45%,#2a2a2a 0%,#151515 50%,#000 100%);}
   .haze{position:absolute;inset:0;background:radial-gradient(ellipse 30% 60% at 50% 40%,rgba(255,255,255,.10),rgba(255,255,255,0) 70%);}
   .title{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:max-content;text-align:center;white-space:nowrap;z-index:1;}
@@ -25,7 +32,7 @@
 <body class="a">
 <div class="haze"></div>
 <div class="title" id="title">FOLLOW &amp; SUBSCRIBE</div>
-<img class="fig" id="fig" src="cut/p7.png" alt="">
+<img class="glow" id="glow" src="cut/p7.png" alt=""><img class="fig" id="fig" src="cut/p7.png" alt="">
 <canvas class="dust" id="dust" width="2560" height="853"></canvas>
 <div class="vig"></div>
 <svg class="grain" width="2560" height="853"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
@@ -34,9 +41,11 @@
 <div class="cr r">Fansly &nbsp;/ 2026</div>
 <script>
   const q=new URLSearchParams(location.search); document.body.className=q.get('v')||'a';
-  if(q.get('img')) fig.src=q.get('img');
+  if(q.get('img')){fig.src=q.get('img');glow.src=q.get('img');}
   if(document.body.className==='b') title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';
-  if(document.body.className==='a'){fig.style.left='44%';let fs=158;title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=2;title.style.fontSize=fs+'px';}}
+  if(document.body.className==='a'||document.body.className==='c'){fig.style.left=q.get('fx')||'44%';glow.style.left=fig.style.left;let fs=158;title.style.fontSize=fs+'px';while(title.scrollWidth>2380&&fs>80){fs-=2;title.style.fontSize=fs+'px';}}
+  if(q.get('layout')==='side'){title.innerHTML='FOLLOW &amp;<br>SUBSCRIBE';title.style.left='110px';title.style.transform='translateY(-50%)';title.style.textAlign='left';title.style.fontSize='150px';title.style.lineHeight='1.25';title.style.letterSpacing='.28em';title.style.paddingLeft='0';
+    fig.style.left='auto';fig.style.right='0';fig.style.transform='none';glow.style.left='auto';glow.style.right='0';glow.style.transform='scale(1.06)';}
   const c=dust.getContext('2d'); let s=7;
   const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
   for(let i=0;i<80;i++){const x=rnd()*2560,y=rnd()*853,r=.6+rnd()*2.2,o=.08+rnd()*.38;
