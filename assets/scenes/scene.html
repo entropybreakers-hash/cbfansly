@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--warm:#F5F1E9;--mute:#9a94a0;--hot:#FF6FA5;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:#000;font-family:'Inter',sans-serif;color:var(--warm);}
+  .g{position:absolute;border-radius:50%;filter:blur(60px);will-change:transform;}
+  .g1{left:-200px;top:-150px;width:1300px;height:1300px;background:radial-gradient(circle,rgba(224,68,122,.30) 0%,rgba(224,68,122,.05) 45%,rgba(224,68,122,0) 66%);animation:d1 8s linear infinite;}
+  .g2{right:-350px;bottom:-400px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(255,90,150,.34) 0%,rgba(255,90,150,.07) 42%,rgba(255,90,150,0) 64%);animation:d2 8s linear infinite;}
+  .g3{left:55%;top:-500px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(250,240,236,.10) 0%,rgba(250,240,236,0) 62%);animation:d3 8s linear infinite;}
+  @keyframes d1{0%{transform:translate(0,0)}25%{transform:translate(70px,40px)}50%{transform:translate(20px,90px)}75%{transform:translate(-50px,30px)}100%{transform:translate(0,0)}}
+  @keyframes d2{0%{transform:translate(0,0)}25%{transform:translate(-80px,-30px)}50%{transform:translate(-30px,-100px)}75%{transform:translate(60px,-40px)}100%{transform:translate(0,0)}}
+  @keyframes d3{0%{transform:translate(0,0)}50%{transform:translate(-60px,60px)}100%{transform:translate(0,0)}}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 70% 66% at 50% 50%,rgba(0,0,0,0) 40%,rgba(0,0,0,.6) 84%,rgba(0,0,0,.9) 100%);}
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+  .eyebrow{font-weight:500;font-size:20px;letter-spacing:.42em;text-transform:uppercase;color:var(--hot);margin-bottom:30px;}
+  h1{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:172px;line-height:.95;letter-spacing:-.01em;margin-bottom:34px;animation:breathe 4s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.86;transform:translateY(-6px)}}
+  .sub{font-weight:300;font-size:34px;color:var(--mute);max-width:44ch;line-height:1.4;margin-bottom:60px;}
+  .sub b{font-weight:500;color:var(--warm);display:block;margin-top:6px;}
+  .pill{display:inline-flex;align-items:center;gap:16px;padding:18px 34px 18px 26px;border-radius:999px;
+    background:rgba(255,255,255,.05);border:1px solid rgba(245,241,233,.16);
+    box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08);}
+  .pill img{width:40px;height:auto;}
+  .pill .t{font-size:32px;font-weight:400;color:rgba(245,241,233,.9);letter-spacing:.01em;}
+  .pill .t b{font-weight:700;color:#fff;}
+  .hint{margin-top:26px;font-size:20px;font-weight:300;color:var(--mute);letter-spacing:.02em;}
+  .live{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;font-size:17px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);font-weight:500;}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--hot);box-shadow:0 0 0 0 rgba(255,111,165,.7);animation:pulse 2s ease-out infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,111,165,.7)}100%{box-shadow:0 0 0 18px rgba(255,111,165,0)}}
+  .line{position:absolute;left:50%;bottom:40px;width:320px;height:1px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(255,111,165,0),rgba(255,111,165,.5),rgba(255,111,165,0));background-size:200% 100%;animation:sweep 4s linear infinite;}
+  @keyframes sweep{0%{background-position:100% 0}100%{background-position:-100% 0}}
+</style></head>
+<body>
+<div class="g g1"></div><div class="g g2"></div><div class="g g3"></div>
+<div class="vig"></div>
+<div class="wrap">
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="h1"></h1>
+  <div class="sub" id="sub"></div>
+  <div class="pill"><img src="../dmca/fansly-icon.png" alt=""><span class="t">fansly.com/<b id="uname"></b></span></div>
+  <div class="hint" id="hint"></div>
+</div>
+<div class="live"><span class="dot"></span><span id="live"></span></div>
+<div class="line"></div>
+<script>
+  const q=new URLSearchParams(location.search), mode=q.get('mode')||'brb', acc=q.get('acc')||'couple';
+  const C={
+    couple:{eyebrow:'Rebi &amp; Ricci',name:'dreamcouple69',
+      brb:{h1:'Be right back.',sub:'Grab a drink, we&#8217;ll be two minutes. <b>Don&#8217;t go anywhere.</b>',hint:'Meanwhile, the full videos are waiting on Fansly.',live:'Back in a moment'},
+      soon:{h1:'Starting soon.',sub:'Get comfy. <b>The show begins in a moment.</b>',hint:'Warm up with the full videos on Fansly.',live:'Going live any minute'}},
+    solo:{eyebrow:'Rebi',name:'badbunnyyy77',
+      brb:{h1:'Be right back.',sub:'Grab a drink, I&#8217;ll be two minutes. <b>Don&#8217;t go anywhere.</b>',hint:'Meanwhile, my full videos are waiting on Fansly.',live:'Back in a moment'},
+      soon:{h1:'Starting soon.',sub:'Get comfy. <b>I&#8217;ll be with you in a moment.</b>',hint:'Warm up with my full videos on Fansly.',live:'Going live any minute'}}
+  };
+  const a=C[acc], m=a[mode];
+  eyebrow.innerHTML=a.eyebrow; document.getElementById("uname").textContent=a.name; h1.innerHTML=m.h1; sub.innerHTML=m.sub; hint.textContent=m.hint; live.textContent=m.live;
+</script>
+</body></html>
